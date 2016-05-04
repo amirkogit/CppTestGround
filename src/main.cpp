@@ -81,9 +81,9 @@ int main()
 
 //	TemplateDemo();
 
-//	LamdaDemo();
+	LamdaDemo();
 
-	ExplicitInitializationDemo();
+//	ExplicitInitializationDemo();
 
 
 	getchar();
