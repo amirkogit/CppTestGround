@@ -26,8 +26,9 @@
 #include "lamda_demo.h"
 #include "explicit_initialization_demo.h"
 #include "unordered_sets_multisets_demo.h"
+#include "unordered_maps_multimaps_demo.h"
 
-void InitializerDemo()
+void RunInitializerDemo()
 {
     std::cout << "Initializer Demo\n";
 
@@ -41,7 +42,7 @@ void InitializerDemo()
     id3.PrintSelf();
 }
 
-void RangeBasedForLoopDemo()
+void RunRangeBasedForLoopDemo()
 {
     std::cout << "Range based for loop Demo\n";
 
@@ -50,7 +51,7 @@ void RangeBasedForLoopDemo()
     rangedemo.AddAllArrayElements();
 }
 
-void VariadicTemplatesDemo()
+void RunVariadicTemplatesDemo()
 {
     std::cout << "Variadic templates demo\n";
 
@@ -58,7 +59,7 @@ void VariadicTemplatesDemo()
     vtd.Print(7.5, "hello", "world", 45);
 }
 
-void TemplateDemo()
+void RunTemplateDemo()
 {
     std::cout << "Templates demo\n";
 
@@ -68,7 +69,7 @@ void TemplateDemo()
     //td.Sum("Hello", "World");
 }
 
-void LamdaDemo()
+void RunLamdaDemo()
 {
     std::cout << "Lambda demo\n";
 
@@ -86,7 +87,7 @@ void LamdaDemo()
     ld.ReturnLambda();
 }
 
-void ExplicitInitializationDemo()
+void RunExplicitInitializationDemo()
 {
     Explicit_Initialization_Demo eid;
     eid.Fundamental_Types_Explicit_Initialization();
@@ -99,21 +100,29 @@ void RunUnorderedSetsMultiSetsDemo()
     
 }
 
+void RunUnorderedMapsMultiMapsDemo()
+{
+    UnorderedMapsMultiMapsDemo unordered_maps_multimaps_demo;
+    unordered_maps_multimaps_demo.SimpleMultimap();
+}
+
 int main()
 {
-    //InitializerDemo();
+    //RunInitializerDemo();
 
-    //RangeBasedForLoopDemo();
+    //RunRangeBasedForLoopDemo();
 
-    //VariadicTemplatesDemo();
+    //RunVariadicTemplatesDemo();
 
-    //TemplateDemo();
+    //RunTemplateDemo();
 
-    //LamdaDemo();
+    //RunLamdaDemo();
 
-    //ExplicitInitializationDemo();
+    //RunExplicitInitializationDemo();
 
-    RunUnorderedSetsMultiSetsDemo();
+    //RunUnorderedSetsMultiSetsDemo();
+
+    RunUnorderedMapsMultiMapsDemo();
 
     // wait for user to press any key
     getchar();
