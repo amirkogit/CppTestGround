@@ -25,6 +25,7 @@
 #include "template_demo.h"
 #include "lamda_demo.h"
 #include "explicit_initialization_demo.h"
+#include "unordered_sets_multisets_demo.h"
 
 void InitializerDemo()
 {
@@ -91,6 +92,13 @@ void ExplicitInitializationDemo()
     eid.Fundamental_Types_Explicit_Initialization();
 }
 
+void RunUnorderedSetsMultiSetsDemo()
+{
+    UnorderedSetsMultiSetsDemo usms_demo;
+    usms_demo.SimpleMultiset();
+    
+}
+
 int main()
 {
 //	InitializerDemo();
@@ -101,9 +109,11 @@ int main()
 
 //	TemplateDemo();
 
-    LamdaDemo();
+//    LamdaDemo();
 
 //	ExplicitInitializationDemo();
+
+    RunUnorderedSetsMultiSetsDemo();
 
 
     getchar();
