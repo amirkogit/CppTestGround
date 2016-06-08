@@ -25,12 +25,12 @@
 
 class Initializer_Demo{
 public:
-	Initializer_Demo(int a, int b);
+    Initializer_Demo(int a, int b);
 
-	Initializer_Demo(std::initializer_list<int> vals);
+    Initializer_Demo(std::initializer_list<int> vals);
 
-	void PrintSelf();
+    void PrintSelf();
 
 private:
-	std::vector<int> _valueList;
+    std::vector<int> _valueList;
 };

@@ -23,19 +23,19 @@
 class Lamda_Demo
 {
 public:
-	Lamda_Demo();
-	~Lamda_Demo();
+    Lamda_Demo();
+    ~Lamda_Demo();
 
-	void SimpleLamda();
+    void SimpleLamda();
 
-	void ParameterizedLamda();
+    void ParameterizedLamda();
 
-	void ReturnTypeLambda();
+    void ReturnTypeLambda();
 
-	void CaptureLambda();
+    void CaptureLambda();
 
-	void MutableLambda();
+    void MutableLambda();
 
-	void ReturnLambda();
+    void ReturnLambda();
 };
 
