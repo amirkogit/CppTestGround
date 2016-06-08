@@ -101,21 +101,21 @@ void RunUnorderedSetsMultiSetsDemo()
 
 int main()
 {
-//	InitializerDemo();
+    //InitializerDemo();
 
-//	RangeBasedForLoopDemo();
+    //RangeBasedForLoopDemo();
 
-//	VariadicTemplatesDemo();
+    //VariadicTemplatesDemo();
 
-//	TemplateDemo();
+    //TemplateDemo();
 
-//    LamdaDemo();
+    //LamdaDemo();
 
-//	ExplicitInitializationDemo();
+    //ExplicitInitializationDemo();
 
     RunUnorderedSetsMultiSetsDemo();
 
-
+    // wait for user to press any key
     getchar();
     return 0;
 }
