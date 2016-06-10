@@ -106,8 +106,22 @@ void RunUnorderedMapsMultiMapsDemo()
     unordered_maps_multimaps_demo.SimpleMultimap();
 }
 
+/////////////////////////////////////////////////////////////////
+// Dummy test stud for real quick testing
+// include headers specific for this testing //
+//
+//
+// end header includes //
+void RunDummy()
+{
+
+}
+/////////////////////////////////////////////////////////////////
+
 int main()
 {
+    RunDummy();
+
     //RunInitializerDemo();
 
     //RunRangeBasedForLoopDemo();
@@ -122,7 +136,7 @@ int main()
 
     //RunUnorderedSetsMultiSetsDemo();
 
-    RunUnorderedMapsMultiMapsDemo();
+    //RunUnorderedMapsMultiMapsDemo();
 
     // wait for user to press any key
     getchar();
