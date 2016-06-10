@@ -4,6 +4,8 @@ project(cppTestGround)
 
 add_executable(cppTestGround 
     src/main.cpp
+    src/common_utilities.h
+    src/common_utilities.cpp
     src/initializer_demo.h
     src/initializer_demo.cpp
     src/range_based_for_loop_demo.h
@@ -20,4 +22,6 @@ add_executable(cppTestGround
     src/unordered_sets_multisets_demo.cpp
     src/unordered_maps_multimaps_demo.h
     src/unordered_maps_multimaps_demo.cpp
+    src/algorithms_demo.h
+    src/algorithms_demo.cpp
  )

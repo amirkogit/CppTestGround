@@ -27,6 +27,7 @@
 #include "explicit_initialization_demo.h"
 #include "unordered_sets_multisets_demo.h"
 #include "unordered_maps_multimaps_demo.h"
+#include "algorithms_demo.h"
 
 void RunInitializerDemo()
 {
@@ -106,6 +107,12 @@ void RunUnorderedMapsMultiMapsDemo()
     unordered_maps_multimaps_demo.SimpleMultimap();
 }
 
+void RunAlgorithmsDemo()
+{
+    AlgorithmsDemo algo_demo;
+    algo_demo.SimpleTransform();
+}
+
 /////////////////////////////////////////////////////////////////
 // Dummy test stud for real quick testing
 // include headers specific for this testing //
@@ -137,6 +144,8 @@ int main()
     //RunUnorderedSetsMultiSetsDemo();
 
     //RunUnorderedMapsMultiMapsDemo();
+
+    RunAlgorithmsDemo();
 
     // wait for user to press any key
     getchar();
