@@ -26,5 +26,7 @@ public:
     ~AlgorithmsDemo();
 
     void SimpleTransform();
+
+    void PreDefinedFunctionObjects();
 };
 

@@ -111,6 +111,7 @@ void RunAlgorithmsDemo()
 {
     AlgorithmsDemo algo_demo;
     algo_demo.SimpleTransform();
+    algo_demo.PreDefinedFunctionObjects();
 }
 
 /////////////////////////////////////////////////////////////////
@@ -118,16 +119,18 @@ void RunAlgorithmsDemo()
 // include headers specific for this testing //
 //
 //
+
 // end header includes //
 void RunDummy()
 {
-
 }
+
 /////////////////////////////////////////////////////////////////
+
 
 int main()
 {
-    RunDummy();
+    //RunDummy();
 
     //RunInitializerDemo();
 
@@ -146,6 +149,7 @@ int main()
     //RunUnorderedMapsMultiMapsDemo();
 
     RunAlgorithmsDemo();
+
 
     // wait for user to press any key
     getchar();

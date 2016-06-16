@@ -25,6 +25,7 @@
 #include <algorithm>
 #include <iterator>
 #include <iostream>
+#include <functional>    // for predefined function objects
 
 #include "common_utilities.h"
 
@@ -41,6 +42,7 @@ AlgorithmsDemo::~AlgorithmsDemo()
 
 void AlgorithmsDemo::SimpleTransform()
 {
+    cout << "\nDEMO:Transforms elements from one collection to other using std::transform and unary operator.\n";
     std::set<std::string> name_list;
     std::vector<std::string> name_list_capitalized;
 
@@ -61,4 +63,26 @@ void AlgorithmsDemo::SimpleTransform()
 
     // print elements
     CommonUtilities::PrintElements(name_list_capitalized, "After capitalizing...");
+}
+
+void AlgorithmsDemo::PreDefinedFunctionObjects()
+{
+    cout << "\nDEMO:Predefined function objects.\n";
+
+    vector<int> coll = { 1,2,3,4,5,6,7,8,9 };
+
+    CommonUtilities::PrintElements(coll, "Values before negating...");
+
+    // negates each element of the collection using a pre-defined function object 'negate'
+    std::transform(coll.begin(), coll.end(), coll.begin(), std::negate<int>());
+
+    CommonUtilities::PrintElements(coll, "Values after negating..."); 
+
+    // multiplies each element of the collection using a pre-defined function object 'multiplies'
+    std::transform(coll.cbegin(), coll.cend(),    // first source
+                   coll.cbegin(),                 // second source
+                   coll.begin(),                  // destination
+                   std::multiplies<int>());       // operation
+
+    CommonUtilities::PrintElements(coll, "Values after multiples...");
 }
