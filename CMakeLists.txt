@@ -24,4 +24,6 @@ add_executable(cppTestGround
     src/unordered_maps_multimaps_demo.cpp
     src/algorithms_demo.h
     src/algorithms_demo.cpp
+	hackerrank/hacker_rank_challenges.h
+	hackerrank/hacker_rank_challenges.cpp
  )

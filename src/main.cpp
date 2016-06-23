@@ -29,6 +29,9 @@
 #include "unordered_maps_multimaps_demo.h"
 #include "algorithms_demo.h"
 
+// hackerrank
+#include "..\hackerrank\hacker_rank_challenges.h"
+
 void RunInitializerDemo()
 {
     std::cout << "Initializer Demo\n";
@@ -114,13 +117,18 @@ void RunAlgorithmsDemo()
     algo_demo.PreDefinedFunctionObjects();
 }
 
+void RunHackerRankChallengesDemo()
+{
+    HackerRankChallenges::RunAllDemos();
+}
+
 /////////////////////////////////////////////////////////////////
 // Dummy test stud for real quick testing
 // include headers specific for this testing //
 //
 //
-
 // end header includes //
+
 void RunDummy()
 {
 }
@@ -130,7 +138,10 @@ void RunDummy()
 
 int main()
 {
-    //RunDummy();
+    RunDummy();
+
+    // hackerrank challenges demo
+    RunHackerRankChallengesDemo();
 
     //RunInitializerDemo();
 
@@ -148,7 +159,7 @@ int main()
 
     //RunUnorderedMapsMultiMapsDemo();
 
-    RunAlgorithmsDemo();
+    //RunAlgorithmsDemo();
 
 
     // wait for user to press any key
