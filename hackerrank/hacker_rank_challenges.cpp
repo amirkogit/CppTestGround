@@ -8,6 +8,8 @@
 #include <string>
 #include <map>
 #include <cmath>
+#include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -80,6 +82,52 @@ void IntroForLoop()
 
 //////////////////////////////////////////////////////////////////////////////////////
 
+// Introduction/Functions
+// *****************************
+
+//Add `int max_of_four(int a, int b, int c, int d)` here.
+int max_of_four(int a, int b, int c, int d)
+{
+    vector<int> list = { a,b,c,d };
+    auto max = std::max_element(list.begin(), list.end());
+    return *max;
+}
+
+void IntroFunction()
+{
+    int a, b, c, d;
+    scanf("%d %d %d %d", &a, &b, &c, &d);
+    int ans = max_of_four(a, b, c, d);
+    printf("%d", ans);
+
+    vector<int> list;
+}
+
+///////////////////////////////////////////////////////////
+
+// Introduction/Pointer
+void update(int *a, int *b) {
+    // Complete this function    
+    int tempa = *a;
+    int tempb = *b;
+    *a = tempa + tempb;
+    *b = std::abs(tempa - tempb);
+}
+
+void IntroPointer()
+{
+    int a, b;
+    int *pa = &a, *pb = &b;
+
+    scanf("%d %d", &a, &b);
+    update(pa, pb);
+    printf("%d\n%d", a, b);
+}
+
+///////////////////////////////////////////////////////////
+
+
+// 30 days coding challenge
 //////////////////////////////////////////////////////////////////////////////////////
 // Day 1: data types
 void Day1DataTypes()
@@ -158,7 +206,11 @@ void HackerRankChallenges::RunAllDemos()
 
     //Day1DataTypes();
 
-    Day2Operators();
+    //Day2Operators();
+
+    //IntroFunction();
+
+    IntroPointer();
 
     getchar();
 }
