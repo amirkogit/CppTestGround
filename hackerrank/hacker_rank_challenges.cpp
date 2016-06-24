@@ -2,7 +2,10 @@
 
 // standard library header includes
 #include <iostream>
+#include <iomanip>
+#include <limits>
 #include <cstdio>
+#include <string>
 #include <map>
 
 using namespace std;
@@ -76,6 +79,41 @@ void IntroForLoop()
 
 //////////////////////////////////////////////////////////////////////////////////////
 
+//////////////////////////////////////////////////////////////////////////////////////
+// Day 1: data types
+void Day1DataTypes()
+{
+    int i = 4;
+    double d = 4.0;
+    string s = "HackerRank ";
+
+    // Declare second integer, double, and String variables.
+    int i2;
+    double d2 = 0.0;
+    string s2;
+
+    // Read and save an integer, double, and String to your variables.
+    cin >> i2;
+    cin >> d2;
+    cin.ignore(); // ignore any newline character, can also use getchar()
+    getline(cin, s2);
+
+    // Print the sum of both integer variables on a new line.
+    cout << i + i2 << endl;
+
+    // Print the sum of the double variables on a new line.
+    double result = (double)d + d2;
+    cout.precision(1);
+    cout << fixed <<result << endl; // here using std::fixed is necessary to correctly output 4.0 + 8.0 = 12.0, ot
+
+    // Concatenate and print the String variables on a new line
+    // The 's' variable above should be printed first.
+    cout << s + s2;
+
+}
+//////////////////////////////////////////////////////////////////////////////////////
+
+
 
 //////////////////////////////////////////////////////////////////////////////////////
 // entry point for running hacker rank challeges problems
@@ -85,7 +123,9 @@ void HackerRankChallenges::RunAllDemos()
     
     //IntroHelloWorld();
 
-    IntroForLoop();
+    //IntroForLoop();
+
+    Day1DataTypes();
 
     getchar();
 }
