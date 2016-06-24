@@ -7,6 +7,7 @@
 #include <cstdio>
 #include <string>
 #include <map>
+#include <cmath>
 
 using namespace std;
 
@@ -113,6 +114,36 @@ void Day1DataTypes()
 }
 //////////////////////////////////////////////////////////////////////////////////////
 
+//////////////////////////////////////////////////////////////////////////////////////
+// Day2 operators
+void Day2Operators()
+{
+    //There are  lines of numeric input :
+    //The first line has a double, mealCost(the cost of the meal before tax and tip).
+    //The second line has an integer, tipPercent (the percentage of  being added as tip).
+    //The third line has an integer, taxPercent (the percentage of  being added as tax).
+
+    // Output:
+    //Print The total meal cost is totalCost dollars., where  is the rounded integer result of the entire bill(with added tax and tip).
+
+    double mealCost{ 0.0 };
+    int tipPercent{ 0 };
+    int taxPercent{ 0 };
+
+    cin >> mealCost;
+    cin >> tipPercent;
+    cin >> taxPercent;
+
+    double tip = mealCost * ((double)tipPercent / 100);
+    double tax = mealCost * ((double)taxPercent / 100);
+
+    double totalCost = mealCost + tip + tax;
+    //int totalCostRounded = (int)totalCost;
+
+    cout << "The total meal cost is " << std::round(totalCost) << " dollars.";
+}
+//////////////////////////////////////////////////////////////////////////////////////
+
 
 
 //////////////////////////////////////////////////////////////////////////////////////
@@ -125,7 +156,9 @@ void HackerRankChallenges::RunAllDemos()
 
     //IntroForLoop();
 
-    Day1DataTypes();
+    //Day1DataTypes();
+
+    Day2Operators();
 
     getchar();
 }
