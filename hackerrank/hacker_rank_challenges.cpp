@@ -192,6 +192,32 @@ void Day2Operators()
 }
 //////////////////////////////////////////////////////////////////////////////////////
 
+//////////////////////////////////////////////////////////////////////////////////////
+// Day 3 Intro to conditional statements
+void Day3ConditionalStatements()
+{
+    int n;
+    cin >> n;
+
+    if (n % 2 != 0) {
+        // number is odd
+        cout << "Weird";
+    }
+    else {
+        // number is even
+        if (n >= 2 && n <= 5) {
+            cout << "Not Weird";
+        }
+        else if (n >= 6 && n <= 20) {
+            cout << "Weird";
+        }
+        else if (n > 20) {
+            cout << "Not Weird";
+        }
+    }
+}
+
+//////////////////////////////////////////////////////////////////////////////////////
 
 
 //////////////////////////////////////////////////////////////////////////////////////
@@ -208,10 +234,13 @@ void HackerRankChallenges::RunAllDemos()
 
     //Day2Operators();
 
+    //Day3ConditionalStatements();
+
     //IntroFunction();
 
-    IntroPointer();
+    //IntroPointer();
 
+    
     getchar();
 }
 
