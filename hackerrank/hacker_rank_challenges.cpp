@@ -130,6 +130,35 @@ void IntroPointer()
 ///////////////////////////////////////////////////////////
 
 
+///////////////////////////////////////////////////////////
+// Introduction/Arrays
+void IntroArrays()
+{
+    int n; // size of array
+    cin >> n;
+
+    assert(!(n < 1 || n > 1000));
+
+    vector<int> arr;
+    arr.reserve(n);
+
+    for (int i = 0; i < n; i++) {
+        int val;
+        cin >> val;
+        arr.push_back(val);
+    }
+
+    // reverse the vector contents
+    std::reverse(arr.begin(), arr.end());
+
+    // print the contents
+    for (auto elem : arr) {
+        cout << elem << " ";
+    }
+}
+
+///////////////////////////////////////////////////////////
+
 // 30 days coding challenge
 //////////////////////////////////////////////////////////////////////////////////////
 // Day 1: data types
@@ -551,7 +580,9 @@ void HackerRankChallenges::RunAllDemos()
 
     //WeekOfCode21Kangaroo();
 
-    WeekOfCode21LuckBalance();
+    //WeekOfCode21LuckBalance();
+
+    IntroArrays();
 
     getchar();
 }
