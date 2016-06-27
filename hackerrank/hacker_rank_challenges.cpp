@@ -159,6 +159,51 @@ void IntroArrays()
 
 ///////////////////////////////////////////////////////////
 
+///////////////////////////////////////////////////////////
+// Introduction/Preprocessor solution
+// Sample solution
+#define toStr(str) #str
+
+#define io(data) cin >> data
+
+#define foreach(arr, idx) \
+for(int idx = 0; idx < arr.size(); idx++)
+
+#define FUNCTION(name, op) \
+void name(int &x, int y)\
+{ \
+    if(!(x op y)) \
+        x = y;\
+}
+
+#define INF 1e9
+
+#if !defined toStr || !defined io || !defined FUNCTION || !defined INF
+#error Missing preprocessor definitions
+#endif 
+
+FUNCTION(minimum, <)
+FUNCTION(maximum, >)
+
+void IntroPreprocessor()
+{
+    int n; cin >> n;
+    vector<int> v(n);
+    foreach(v, i) {
+        io(v)[i];
+    }
+    int mn = INF;
+    int mx = -INF;
+    foreach(v, i) {
+        minimum(mn, v[i]);
+        maximum(mx, v[i]);
+    }
+
+    int ans = mx - mn;
+    cout << toStr(Result = ) << ' ' << ans;
+}
+///////////////////////////////////////////////////////////
+
 // 30 days coding challenge
 //////////////////////////////////////////////////////////////////////////////////////
 // Day 1: data types
@@ -582,7 +627,9 @@ void HackerRankChallenges::RunAllDemos()
 
     //WeekOfCode21LuckBalance();
 
-    IntroArrays();
+    //IntroArrays();
+
+    IntroPreprocessor();
 
     getchar();
 }
