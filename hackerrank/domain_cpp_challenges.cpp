@@ -283,6 +283,65 @@ void IntroOperatorOverloading()
 }
 ///////////////////////////////////////////////////////////
 
+
+///////////////////////////////////////////////////////////
+// Intro/variable sized arrays
+///////////////////////////////////////////////////////////
+void IntroVariableSizedArrays()
+{
+    // read N integer sequences value
+    int total_sequence = 0;
+    cin >> total_sequence;
+
+    // read Q queries value
+    int total_queries = 0;
+    cin >> total_queries;
+
+    vector<vector<int>> sequence_list;
+    vector<pair<int, int>> query_list; // (index of sequence, index of element) pairs --> using vector instead of map
+
+    // read all numbers for all sequences
+    for (int seq_id = 0; seq_id < total_sequence; seq_id++) {
+        vector<int> ith_seq;
+        int seq_size = 0;
+        cin >> seq_size;
+        int num;
+        for (int i = 0; i < seq_size; i++) {
+            cin >> num;
+            ith_seq.push_back(num);
+        }
+
+        sequence_list.push_back(ith_seq);
+    }
+
+    // read all queries
+    for (int query_id = 0; query_id < total_queries; query_id++) {
+        int seq_idx = 0;
+        cin >> seq_idx;
+        int elem_idx = 0;
+        cin >> elem_idx;
+        query_list.push_back(std::pair<int, int>(seq_idx, elem_idx));
+    }
+
+    // perform operations for each queries in the query list
+#if 0 // print the contents of query_list
+    for (auto elem : query_list) {
+        cout << "First: " << elem.first << " " << "Second: " << elem.second << endl;
+    }
+#endif // 0
+
+    for (auto elem : query_list) {
+        // get the sequence
+        int seq_id = elem.first;
+        int elem_id = elem.second;
+
+        assert(!(seq_id < 0 || seq_id > sequence_list.size()));
+
+        cout << sequence_list.at(seq_id).at(elem_id) << endl;
+    }
+
+}
+
 void HackerRankChallenges::RunDomainCppChallenges()
 {
     std::cout << "Running all C++ domain challenges." << endl;
@@ -299,7 +358,9 @@ void HackerRankChallenges::RunDomainCppChallenges()
 
     //IntroPreprocessor();
 
-    IntroOperatorOverloading();
+    //IntroOperatorOverloading();
+
+    IntroVariableSizedArrays();
 }
 
 
