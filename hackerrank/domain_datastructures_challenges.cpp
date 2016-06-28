@@ -19,27 +19,29 @@
 * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-#pragma once
-class HackerRankChallenges
+#include "hacker_rank_challenges.h"
+
+// standard library header includes
+#include <iostream>
+#include <iomanip>
+#include <limits>
+#include <cstdio>
+#include <string>
+#include <map>
+#include <cmath>
+#include <vector>
+#include <algorithm>
+#include <stack>
+#include <functional>
+#include <cassert>
+
+using namespace std;
+
+void HackerRankChallenges::RunDomainDataStructuresChallenges()
 {
-public:
-    HackerRankChallenges();
-    ~HackerRankChallenges();
+     std::cout << "Running all data structures domain challenges. " << endl;
+     
+}
 
-public:
-    static void RunAllDemos();
 
-    // other categorized functions that is defined in respective cpp files
-    static void Run30DayChallenges();
-
-    static void RunDomainCppChallenges();
-
-    static void RunDomainAlgorithmsChallenges();
-
-    static void RunDomainDataStructuresChallenges();
-
-    static void RunWeekOfCode21Challenges();
-
-    static void RunWorldCodeSprint4Challenges();
-};
 

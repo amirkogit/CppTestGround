@@ -26,4 +26,10 @@ add_executable(cppTestGround
     src/algorithms_demo.cpp
     hackerrank/hacker_rank_challenges.h
     hackerrank/hacker_rank_challenges.cpp
+	hackerrank/cpp_30days_challenges.cpp
+	hackerrank/domain_cpp_challenges.cpp
+	hackerrank/domain_algorithms_challenges.cpp
+	hackerrank/domain_datastructures_challenges.cpp
+	hackerrank/weekofcode21_challenges.cpp
+	hackerrank/codesprint4_challenges.cpp
  )
