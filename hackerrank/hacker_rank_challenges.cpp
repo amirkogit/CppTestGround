@@ -314,6 +314,72 @@ void Day5Loops()
 
 
 //////////////////////////////////////////////////////////////////////////////////////
+// Day 6 : review
+void Day6LetsReview()
+{
+    int n; // total test cases
+    cin >> n;
+    cin.ignore();
+
+    assert((n >= 1 && n <= 10));
+
+    vector<string> input_strings;
+
+    // read strings
+    for (int i = 0; i < n; i++) {
+        string s;
+        getline(cin, s);
+        if (s.length() >= 2 && s.length() <= 10000) {
+            input_strings.push_back(s);
+        }
+    }
+
+    // print the contents of input strings
+#if 0
+    cout << endl;
+    for (auto elem : input_strings) {
+        cout << elem << endl;
+    }
+#endif // 0
+
+    for (auto elem : input_strings) {
+        string s = elem;
+        int idx = 0;
+        vector<char> s_even;
+        vector<char> s_odd;
+        for (auto ch : s) {
+            if (idx % 2 == 0 || idx == 0) {
+                // even
+                s_even.push_back(ch);
+            }
+            else {
+                // odd
+                s_odd.push_back(ch);
+            }
+            idx++;
+        }
+
+        // print even indexed characters
+        for (auto e : s_even) {
+            cout << e;
+        }
+
+        // print space
+        cout << " ";
+
+        // print odd indexed characters
+        for (auto e : s_odd) {
+            cout << e;
+        }
+
+        // newline
+        cout << endl;
+    }
+}
+//////////////////////////////////////////////////////////////////////////////////////
+
+
+//////////////////////////////////////////////////////////////////////////////////////
 // World CodeSprint#4 Minimum distance
 void WorldCodeSprint4MinimumDistance()
 {
@@ -629,7 +695,9 @@ void HackerRankChallenges::RunAllDemos()
 
     //IntroArrays();
 
-    IntroPreprocessor();
+    //IntroPreprocessor();
+
+    Day6LetsReview();
 
     getchar();
 }
