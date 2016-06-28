@@ -34,6 +34,7 @@
 #include <stack>
 #include <functional>
 #include <cassert>
+#include <set>
 
 using namespace std;
 
@@ -164,11 +165,121 @@ void WeekOfCode21LuckBalance()
 }
 /////////////////////////////////////////////////////////
 
+/////////////////////////////////////////////////////////
+// Lazy sorting
+int factorial(int n)
+{
+    if (n == 1) {
+        return n;
+    }
+    else {
+        return (n*factorial(n - 1));
+    }
+}
+
+void WeekOfCode21LazySorting()
+{
+    // bogo sort
+    //while isNotSorted(P) do {
+    //    WaitOneMinute();
+    //    RandomShuffle(P)
+    //}
+
+    // Method 1: (this didn't pass all test cases !)
+    ////////////////////////////////////////////////////
+
+    // read input number (test case size)
+    int n = 0;
+    cin >> n;
+
+    vector<int> vec;
+
+    // read all numbers
+    for (int i = 0; i < n; i++) {
+        int elem;
+        cin >> elem;
+        vec.push_back(elem);
+    }
+
+    set<int> vec_set;
+    for (auto elem : vec) {
+        vec_set.insert(elem);
+    }
+
+    // determine if there are any duplicates!
+    bool duplicates_exists = false;
+    if (!(vec_set.size() == vec.size())) {
+        // all unique elements
+        duplicates_exists = true;
+    }
+
+    double sum = 0.0;
+
+    int permutation_number = n;
+
+    if (duplicates_exists) {
+        permutation_number = vec_set.size();
+    }
+    else {
+        permutation_number = n;
+    }
+
+    sum = factorial(permutation_number);
+
+    cout.precision(6);
+    cout << fixed << sum;
+
+    // method 2 (this also didn't pass all test cases)
+    /////////////////////////////////////////////////////
+#if 0
+
+    int i = 0;
+    double epsilon = -0.00005;
+    double sum = 0.0;
+    double prev_sum = 0.0;
+    int n = 0;
+    cin >> n;
+
+    vector<int> vec;
+    vec.resize(n);
+
+    for (int i = 0; i < n; i++) {
+        int elem;
+        cin >> elem;
+        vec.push_back(elem);
+    }
+
+    while (true) {
+        sum = sum + ((double)i* pow(n, -i));
+        double delta = sum - prev_sum;
+        if (delta == 0 && i > 0) {
+            break;
+        }
+        else {
+            prev_sum = sum;
+        }
+        i++;
+        //cout << "delta: " << delta << endl;
+    }
+
+    //cout << "sum = " << sum;
+    //cout << "no of iterations: " << i;
+
+    cout.precision(6);
+    cout << fixed << sum;
+#endif // 0
+
+}
+
+/////////////////////////////////////////////////////////
+
 void HackerRankChallenges::RunWeekOfCode21Challenges()
 {
     std::cout << "Running all Week of code 21 challenges." << endl;
 
-    WeekOfCode21Kangaroo();
+    //WeekOfCode21Kangaroo();
 
-    WeekOfCode21LuckBalance();
+    //WeekOfCode21LuckBalance();
+
+    WeekOfCode21LazySorting();
 }

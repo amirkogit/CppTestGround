@@ -42,18 +42,21 @@ void HackerRankChallenges::RunAllDemos()
 {
     std::cout << "Running all hacker rank challenges" << endl;
     std::cout << "***********************************" << endl;
-    
-    RunDomainCppChallenges();
 
-    Run30DayChallenges();
+    // uncomment the method that you want to test
+    ////////////////////////////////////////////////
 
-    RunDomainAlgorithmsChallenges();
+    //RunDomainCppChallenges();
 
-    RunDomainDataStructuresChallenges();
+    //Run30DayChallenges();
+
+    //RunDomainAlgorithmsChallenges();
+
+    //RunDomainDataStructuresChallenges();
 
     RunWeekOfCode21Challenges();
 
-    RunWorldCodeSprint4Challenges();
+    //RunWorldCodeSprint4Challenges();
 
     // wait for user input char
     getchar();
