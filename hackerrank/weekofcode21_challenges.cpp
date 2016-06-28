@@ -229,6 +229,7 @@ void WeekOfCode21LazySorting()
     cout.precision(6);
     cout << fixed << sum;
 
+
     // method 2 (this also didn't pass all test cases)
     /////////////////////////////////////////////////////
 #if 0
