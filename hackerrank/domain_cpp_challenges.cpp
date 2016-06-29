@@ -34,6 +34,7 @@
 #include <stack>
 #include <functional>
 #include <cassert>
+#include <sstream>
 
 using namespace std;
 
@@ -509,6 +510,57 @@ void IntroVirtualFunctions()
 ///////////////////////////////////////////////////////////
 
 ///////////////////////////////////////////////////////////
+// Strings/Strings
+void StringsStrings()
+{
+    // read two strings
+    string string1, string2;
+    cin >> string1 >> string2;
+
+    // print the length of these strings
+    cout << string1.length() << " " << string2.length() << endl;
+
+    // print the concatenation of these string
+    cout << string1 + string2 << endl;
+
+    // swap the first character of each string
+    swap(string1[0], string2[0]);
+
+    cout << string1 << " " << string2 << endl;
+}
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+// Strings/ StringStream
+
+vector<int> parseInts(string str) {
+    // Complete this function
+    stringstream ss(str);
+    vector<int> result;
+
+    while (!ss.eof()) {
+        int n;
+        ss >> n;
+        result.push_back(n);
+        char comma;
+        ss >> comma;
+    }
+
+    return result;
+}
+
+void StringsStream()
+{
+    string str;
+    cin >> str;
+    vector<int> integers = parseInts(str);
+    for (int i = 0; i < integers.size(); i++) {
+        cout << integers[i] << "\n";
+    }
+}
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
 // Main function for calling other sub functions
 // Uncomment the method name that you want to test
 void HackerRankChallenges::RunDomainCppChallenges()
@@ -531,7 +583,11 @@ void HackerRankChallenges::RunDomainCppChallenges()
 
     //IntroVariableSizedArrays();
 
-    IntroOverloadOperator();
+    //IntroOverloadOperator();
+
+    //StringsStrings();
+
+    StringsStream();
 }
 
 
