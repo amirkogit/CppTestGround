@@ -406,6 +406,109 @@ void IntroOverloadOperator()
 
 
 ///////////////////////////////////////////////////////////
+// Introduction/ Virtual functions
+
+// global static variables
+static int id_prof;
+static int id_student;
+
+// base class
+class Person {
+public:
+    virtual void getdata() {
+        cin >> _name;
+        cin >> _age;
+    }
+
+    virtual void putdata() {
+        cout << _name << " " << _age << " ";
+    }
+private:
+    string _name;
+    int _age;
+};
+
+// derived class
+class Professor : public Person {
+public:
+    Professor() {
+        id_prof++;
+    }
+
+    void getdata() override {
+        Person::getdata();
+        cin >> _publication;
+        _cur_id = id_prof;
+    }
+
+    void putdata() override {
+        Person::putdata();
+        cout << _publication << " " << _cur_id << endl;
+    }
+
+private:
+    int _publication;
+    int _cur_id;
+};
+
+// derived class
+class Student : public Person {
+public:
+    Student() {
+        id_student++;
+    }
+
+    void getdata() override {
+        Person::getdata();
+        for (int i = 0; i < 6; ++i) {
+            int mark;
+            cin >> mark;
+            _marks.push_back(mark);
+        }
+        _cur_id = id_student;
+    }
+
+    void putdata() override {
+        Person::putdata();
+        int sum = 0;
+        for (auto elem : _marks) {
+            sum += elem;
+        }
+        cout << sum << " " << _cur_id << endl;
+    }
+
+private:
+    vector<int> _marks;
+    int _cur_id;
+};
+
+void IntroVirtualFunctions()
+{
+    int n, val;
+    cin >> n; // the number of objects that is going to be created
+    constexpr int N = 4;
+    //Person *per[n]; // this is giving compile error!! use C++14 compiler
+    Person *per[N]; // this is giving compile error!! use C++14 compiler
+
+    for (int i = 0; i < n; i++) {
+        cin >> val;
+        if (val == 1) {
+            per[i] = new Professor;
+        }
+        else {
+            per[i] = new Student;
+        }
+
+        per[i]->getdata();
+    }
+
+    for (int i = 0; i < n; i++) {
+        per[i]->putdata();
+    }
+}
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
 // Main function for calling other sub functions
 // Uncomment the method name that you want to test
 void HackerRankChallenges::RunDomainCppChallenges()
