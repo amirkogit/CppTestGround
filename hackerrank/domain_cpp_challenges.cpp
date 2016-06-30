@@ -606,6 +606,8 @@ void StringsAttributeParser()
     // parse each line of HRML code to extract tag and (attribute,value) pairs
     // and store them in a map
     std::map<string,vector<pair<string,string>>> parsed_data; // map of key = tagname, value = list of pairs (attributename, value)
+
+
 }
 ///////////////////////////////////////////////////////////
 

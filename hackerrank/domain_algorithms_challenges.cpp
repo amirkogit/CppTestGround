@@ -35,11 +35,65 @@
 #include <functional>
 #include <cassert>
 
+// other includes
+#include "..\src\common_utilities.h"
+
 using namespace std;
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+// Algorithms/Warmup/PlusMinus
+void WarmupPlusMinus()
+{
+    int n;
+    cin >> n;
+    vector<int> arr(n);
+    for (int arr_i = 0; arr_i < n; arr_i++) {
+        cin >> arr[arr_i];
+    }
+
+#if 0
+    // print the content of vector
+    CommonUtilities::PrintElements(arr, "Input numbers");
+#endif // 0
+
+    int count_pos_no{ 0 };
+    int count_neg_no{ 0 };
+    int count_zero_no{ 0 };
+
+    for (auto elem : arr) {
+        if (elem == 0) {
+            count_zero_no++;
+        }
+        else if (elem > 0) {
+            // positive number
+            count_pos_no++;
+        }
+        else if (elem < 0) {
+            // negative number
+            count_neg_no++;
+        }
+    }
+
+    int total_no = arr.size();
+
+    double frac_pos_no = count_pos_no / (double)total_no;
+    double frac_neg_no = count_neg_no / (double)total_no;
+    double frac_zero_no = count_zero_no / (double)total_no;
+
+    std::setprecision(6);
+    cout << fixed << frac_pos_no << endl;
+    cout << fixed << frac_neg_no << endl;
+    cout << fixed << frac_zero_no << endl;
+}
+//////////////////////////////////////////////////////////////////////////////////////
+
 
 void HackerRankChallenges::RunDomainAlgorithmsChallenges()
 {
     std::cout << "Running all algorithm domain challenges." << endl;
+
+    WarmupPlusMinus();
 }
 
 
