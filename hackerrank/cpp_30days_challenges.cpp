@@ -35,6 +35,9 @@
 #include <functional>
 #include <cassert>
 
+// other includes
+#include "..\src\common_utilities.h"
+
 using namespace std;
 
 
@@ -212,6 +215,43 @@ void Day6LetsReview()
 }
 //////////////////////////////////////////////////////////////////////////////////////
 
+//////////////////////////////////////////////////////////////////////////////////////
+// Day 8 - Dictionaries and maps
+void Day8DictionariesAndMaps()
+{
+    // read total no of entries
+    int no_of_entries;
+    cin >> no_of_entries;
+
+    cin.ignore();
+
+    // read all entries
+    map<string, long> phone_book;
+    string name;
+    long phone_no;
+    for (int i = 0; i < no_of_entries; i++) {
+        cin >> name;
+        cin >> phone_no;
+        phone_book.insert(pair<string, long>(name, phone_no));
+    }
+
+#if 0
+    for (auto elem : phone_book) {
+        cout << elem.first << " = " << elem.second << endl;
+}
+#endif // 0
+
+    // process queries
+    while (cin >> name) {
+        if (phone_book.find(name) != phone_book.end()) {
+            cout << name << "=" << phone_book.find(name)->second << endl;
+        }
+        else {
+            cout << "Not found" << endl;
+        }
+    }
+}
+//////////////////////////////////////////////////////////////////////////////////////
 
 void HackerRankChallenges::Run30DayChallenges()
 {
@@ -225,7 +265,8 @@ void HackerRankChallenges::Run30DayChallenges()
 
     //Day5Loops();
 
-    Day6LetsReview();
+    //Day6LetsReview();
 
+    Day8DictionariesAndMaps();
 }
 
