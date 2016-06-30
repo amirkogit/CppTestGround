@@ -88,12 +88,51 @@ void WarmupPlusMinus()
 }
 //////////////////////////////////////////////////////////////////////////////////////
 
+//////////////////////////////////////////////////////////////////////////////////////
+// // Algorithms/Warmup/Staircase
+void WarmupStaircase()
+{
+    int n;
+    cin >> n;
+
+    vector<vector<char>> staircase;
+
+    int no_of_tiles = 1;
+    for (int i = 0; i < n; i++, no_of_tiles++) {
+        // create steps
+        vector<char> step;
+
+        // fill first few with spaces
+        for (int i = 0; i < (n - no_of_tiles); i++) {
+            step.push_back(' ');
+        }
+
+        // fill the rest with #
+        for (int i = 0; i < no_of_tiles; i++) {
+            step.push_back('#');
+        }
+
+        // add individual step
+        staircase.push_back(step);
+    }
+
+    // print staircase in reverse order
+    for (auto elem : staircase) {
+        for (auto step : elem) {
+            cout << step;
+        }
+        cout << endl;
+    }
+}
+//////////////////////////////////////////////////////////////////////////////////////
 
 void HackerRankChallenges::RunDomainAlgorithmsChallenges()
 {
     std::cout << "Running all algorithm domain challenges." << endl;
 
-    WarmupPlusMinus();
+    //WarmupPlusMinus();
+
+    WarmupStaircase();
 }
 
 
