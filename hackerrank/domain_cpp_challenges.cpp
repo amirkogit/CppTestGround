@@ -36,6 +36,9 @@
 #include <cassert>
 #include <sstream>
 
+// other includes
+#include "..\src\common_utilities.h"
+
 using namespace std;
 
 
@@ -560,6 +563,52 @@ void StringsStream()
 }
 ///////////////////////////////////////////////////////////
 
+
+///////////////////////////////////////////////////////////
+// Strings/Attribute Parser
+
+void StringsAttributeParser()
+{
+    int no_of_lines{ 0 }; // no of lines in HRML source program
+    cin >> no_of_lines;
+
+    int no_of_queries{ 0 }; // no of queries
+    cin >> no_of_queries;
+
+    // list containing all hrml code
+    std::vector<std::string> hrml_source;
+
+    // ignore whitespaces & lines before reading any string values
+    cin.ignore();
+
+    // read all lines of HRML source program
+    for (int i = 0; i < no_of_lines; i++) {
+        std::string input_line;
+        getline(cin, input_line);
+        hrml_source.push_back(input_line);
+    }
+
+    // list containing all queries
+    std::vector<std::string> hrml_queries;
+
+    // read all queries
+    for (int i = 0; i < no_of_queries; i++) {
+        std::string input_line;
+        getline(cin, input_line);
+        hrml_queries.push_back(input_line);
+    }
+
+#if 0
+    CommonUtilities::PrintElements(hrml_source,"Input HRML source",true);
+    CommonUtilities::PrintElements(hrml_queries, "Input HRML queries",true);
+#endif // 0
+
+    // parse each line of HRML code to extract tag and (attribute,value) pairs
+    // and store them in a map
+    std::map<string,vector<pair<string,string>>> parsed_data; // map of key = tagname, value = list of pairs (attributename, value)
+}
+///////////////////////////////////////////////////////////
+
 ///////////////////////////////////////////////////////////
 // Main function for calling other sub functions
 // Uncomment the method name that you want to test
@@ -587,7 +636,9 @@ void HackerRankChallenges::RunDomainCppChallenges()
 
     //StringsStrings();
 
-    StringsStream();
+    //StringsStream();
+
+    StringsAttributeParser();
 }
 
 

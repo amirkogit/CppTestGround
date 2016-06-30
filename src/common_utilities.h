@@ -31,12 +31,19 @@ public:
 
     template<typename T>
     inline static void PrintElements(const T& coll,
-        const std::string& optstring = "")
+        const std::string& optstring = "", const bool use_newline = false)
     {
         std::cout << optstring << endl;
 
-        for (const auto& elem : coll) {
-            std::cout << elem << ' ';
+        if (use_newline) {
+            for (const auto& elem : coll) {
+                std::cout << elem << endl;
+            }
+        }
+        else {
+            for (const auto& elem : coll) {
+                std::cout << elem << ' ';
+            }
         }
 
         std::cout << endl;
