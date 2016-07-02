@@ -253,6 +253,72 @@ void Day8DictionariesAndMaps()
 }
 //////////////////////////////////////////////////////////////////////////////////////
 
+//////////////////////////////////////////////////////////////////////////////////////
+void Day10BinaryNumbers()
+{
+    // method 2
+    int n;
+    cin >> n;
+
+    int remainder = 0, sequence_counter = 0, max_one_till_now = 0;
+
+    while (n > 0) {
+        remainder = n % 2;
+        n = n / 2;
+        if (remainder == 1){
+            sequence_counter++;
+            if (sequence_counter >= max_one_till_now)
+                max_one_till_now = sequence_counter;
+        }
+        else {
+            sequence_counter = 0;
+        }
+    }
+
+    cout << max_one_till_now;
+
+    // method 1 (failed testcase 2 and 3)
+#if 0
+    int n;
+    cin >> n;
+
+    stack<int> bin_no;
+
+    while (n > 0) {
+        int remainder = n % 2;
+        n = n / 2;
+        bin_no.push(remainder);
+    }
+
+    stack<int> sequence_tracker;
+    int max_one_till_now = -1;
+
+    while (!bin_no.empty()) {
+        int cur_digit = bin_no.top();
+        bin_no.pop();
+
+        if (cur_digit == 1) {
+            sequence_tracker.push(cur_digit);
+        }
+        else {
+            // zero encountered
+            int count = 0;
+            while (!sequence_tracker.empty()) {
+                count++;
+                sequence_tracker.pop();
+            }
+            if (max_one_till_now < count) {
+                max_one_till_now = count;
+            }
+        }
+    }
+
+    // print the count
+    cout << max_one_till_now;
+#endif // 0
+}
+//////////////////////////////////////////////////////////////////////////////////////
+
 void HackerRankChallenges::Run30DayChallenges()
 {
     std::cout << "Running all 30 day challenges." << endl;
@@ -267,6 +333,8 @@ void HackerRankChallenges::Run30DayChallenges()
 
     //Day6LetsReview();
 
-    Day8DictionariesAndMaps();
+    //Day8DictionariesAndMaps();
+
+    Day10BinaryNumbers();
 }
 
