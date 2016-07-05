@@ -35,6 +35,9 @@
 #include <functional>
 #include <cassert>
 
+// other includes
+#include "..\src\common_utilities.h"
+
 using namespace std;
 
 namespace DynamicArrays {
@@ -101,11 +104,60 @@ namespace DynamicArrays {
     }
 } // end of namespace DynamicArrays
 
+
+//////////////////////////////////////////////////////////////////////////////////////
+namespace ArrayLeftRotation {
+
+    void ArrayLeftRotation() 
+    {
+        // read size of array
+        int n;
+        cin >> n;
+
+        // read rotation distance
+        int d;
+        cin >> d;
+
+        assert(d <= n);
+
+        // read all numbers
+        vector<int> arr(n);
+        for (int i = 0; i < n; i++) {
+            cin >> arr[i];
+        }
+
+#if 0
+        CommonUtilities::PrintElements(arr, "contents of arr");
+#endif // 0
+
+        vector<int> new_arr(n);
+        int idx = 0;
+        for (int i = d; i < arr.size(); i++) {
+            new_arr[idx] = arr[i];
+            idx++;
+        }
+
+        // copy the rest to end
+        for (int i = 0; i < d; i++) {
+            new_arr[idx] = arr[i];
+            idx++;
+        }
+
+        for (auto elem : new_arr) {
+            cout << elem << " ";
+        }
+    }
+} // end of namespace ArrayLeftRotation
+  //////////////////////////////////////////////////////////////////////////////////////
+
+
 void HackerRankChallenges::RunDomainDataStructuresChallenges()
 {
      std::cout << "Running all data structures domain challenges. " << endl;
 
-     DynamicArrays::DynamicArrays();
+     //DynamicArrays::DynamicArrays();
+
+     ArrayLeftRotation::ArrayLeftRotation();
 }
 
 

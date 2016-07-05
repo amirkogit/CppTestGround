@@ -46,13 +46,13 @@ void HackerRankChallenges::RunAllDemos()
     // uncomment the method that you want to test
     ////////////////////////////////////////////////
 
-    RunDomainCppChallenges();
+    //RunDomainCppChallenges();
 
     //Run30DayChallenges();
 
     //RunDomainAlgorithmsChallenges();
 
-    //RunDomainDataStructuresChallenges();
+    RunDomainDataStructuresChallenges();
 
     //RunWeekOfCode21Challenges();
 
