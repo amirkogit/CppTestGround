@@ -566,9 +566,223 @@ void StringsStream()
 
 ///////////////////////////////////////////////////////////
 // Strings/Attribute Parser
+namespace StringAttributeParser {
+    // Format:
+    // <tag-name attribute1-name = "value1" attribute2-name = "value2" ... >
+    //The closing tags follow the format :
+    //
+    //< / tag - name >
+    // 
+    // Example
+    //<tag1 value = "HelloWorld">
+    //<tag2 name = "Name1">
+    //< / tag2>
+    //< / tag1>
+
+    // The attributes are referenced as:
+    //tag1~value
+    //tag1.tag2~name
+
+    enum class ReaderState {
+        OPEN_TAG, // <
+        CLOSE_TAG, // >
+        END_TAG, // /
+        EQUAL_CHAR, // =
+        TAGNAME_CHAR, // characters that follow immediately after <
+        ATRRIBUTENAME_CHAR, // characters that follow immediately after tagname characters end of first space
+        VALNAME_CHAR, // 
+        START_QUOTE,
+        END_QUOTE,
+        WHITE_SPACE,
+        UNDEFINED
+    };
+
+    struct ParsedData {
+        std::string tag_name;
+        std::map<string, string> attribute_value_map; // (key,value) = attribute name, attribute data
+    };
+
+void ParseHRMLCode(const string& input_line, ParsedData& parse_data_out)
+{
+    assert(!input_line.empty()); // assert when the input_line is empty
+
+    cout << "input: " << input_line << endl << endl;
+
+    ReaderState current_state = ReaderState::UNDEFINED; // may not be needed - handled by stack!
+
+    //<tag1 value = "HelloWorld">
+    // find the first occurence of <
+
+    // stack where the current operation is pushed
+    stack<ReaderState> progress_stack;
+    progress_stack.push(ReaderState::UNDEFINED);
+
+    string tag_name;
+    map<string,string> attribute_value_map;
+
+    string temp;
+    string last_read_attribute_name;
+
+    for (auto ch : input_line) {
+        if (ch == '<') {
+            progress_stack.push(ReaderState::OPEN_TAG);
+        }
+
+        if (ch == '>') {
+            progress_stack.push(ReaderState::CLOSE_TAG);
+            
+            // pop the stack contents
+            while (!progress_stack.empty()) {
+                progress_stack.pop();
+            }
+        }
+
+        if (ch == '/') {
+            // end of tag
+        }
+
+        if (!progress_stack.empty() && progress_stack.top() == ReaderState::OPEN_TAG) {
+            // read all characters which is tag name
+            progress_stack.push(ReaderState::TAGNAME_CHAR);
+            continue;
+        }
+
+        // read the tag name characters
+        if (!progress_stack.empty() && progress_stack.top() == ReaderState::TAGNAME_CHAR) {
+            temp.append({ ch });
+        }
+
+        if (ch == '=') {
+            if (progress_stack.empty()) {
+                progress_stack.push(ReaderState::EQUAL_CHAR);
+            }
+        }
+
+        if (ch == '"') {
+            // determine if its a start or end quote
+            // if the stack is empty == start quote
+            if (progress_stack.empty()) {
+                progress_stack.push(ReaderState::START_QUOTE);
+                continue;
+            }
+
+            if (!progress_stack.empty() && progress_stack.top() == ReaderState::START_QUOTE) {
+                // this is end of reading all attribute value
+                string attrib_value = temp;
+
+                // store this in last read attribute name (key) in map
+                attribute_value_map[last_read_attribute_name] = attrib_value; // remove this !!
+                parse_data_out.attribute_value_map[last_read_attribute_name] = attrib_value;
+
+                last_read_attribute_name.clear(); // reset for next usage
+
+                progress_stack.push(ReaderState::END_QUOTE);
+            }
+        }
+
+        // space detected
+        if (ch == ' ') {
+            // check the current state of progress stack
+            if (!progress_stack.empty() && progress_stack.top() == ReaderState::TAGNAME_CHAR) {
+                // this indicates the end of reading the tag name
+                // extract the tagname and store
+                tag_name = temp; // remove this
+
+                parse_data_out.tag_name = temp;
+
+                // TODO trim ending spaces
+                // ...
+               
+                temp.clear(); // reset for next usage
+
+                // pop the stack contents
+                while (!progress_stack.empty()) {
+                    progress_stack.pop();
+                }
+
+                // store the next state of character input
+                progress_stack.push(ReaderState::ATRRIBUTENAME_CHAR);
+                continue;
+            }
+
+            // other checks will go here
+            //....
+
+            if (!progress_stack.empty() && progress_stack.top() == ReaderState::ATRRIBUTENAME_CHAR) {
+                // indicates the end of reading the attribute name
+                // extract attribute name and store in the map
+                last_read_attribute_name = temp;
+                attribute_value_map[last_read_attribute_name] = " "; // here key is the string in temp read so far and value is empty // TODO: remove this
+                parse_data_out.attribute_value_map[last_read_attribute_name] = " ";
+
+                temp.clear(); // reset for next usage
+
+                // pop the stack contents
+                while (!progress_stack.empty()) {
+                    progress_stack.pop();
+                }
+
+                // store the next state of character input
+                //progress_stack.push(ReaderState::EQUAL_CHAR);
+            }
+
+            if (!progress_stack.empty() && progress_stack.top() == ReaderState::EQUAL_CHAR) {
+                // next expect start quote
+                // pop the stack contents
+                while (!progress_stack.empty()) {
+                    progress_stack.pop();
+                }
+            }
+
+            if (!progress_stack.empty() && progress_stack.top() == ReaderState::END_QUOTE) {
+                // pop the stack contents
+                while (!progress_stack.empty()) {
+                    progress_stack.pop();
+                }
+
+                // if this is not the close of tag
+                progress_stack.push(ReaderState::ATRRIBUTENAME_CHAR);
+                temp.clear(); // reset for next usage
+                continue; // new
+            }
+
+
+        } // end of space check if..else
+
+        // read the attribute name
+        if (!progress_stack.empty() && progress_stack.top() == ReaderState::ATRRIBUTENAME_CHAR) {
+            temp.append({ ch });
+        }
+
+        // read the attribute value
+        if (!progress_stack.empty() && progress_stack.top() == ReaderState::START_QUOTE) {
+            temp.append({ ch });
+        }
+
+    }
+
+    // print the contents of parsed data
+#if 0
+    cout << "Input string: " << input_line << endl;
+    cout << "Tag name: " << tag_name << endl;
+    for (auto elem : attribute_value_map) {
+        cout << "Attr name: " << elem.first << " Attr value: " << elem.second << endl;
+    }
+    cout << endl;
+#endif // 0
+}
 
 void StringsAttributeParser()
 {
+    // TEST
+    //string code = "<tag1 value = \"HelloWorld\"\>";
+    //string code = "<tag2 name = \"Name1\">";
+    //string code = "<tag1 fname = \"Hello\" lname = \"world\"\>";
+    //string code = "<person fname = \"amir\" lname = \"world\" age = \"37\"\>";
+    //ParseCode(code);
+    //return;
+    // TEST
+
     int no_of_lines{ 0 }; // no of lines in HRML source program
     cin >> no_of_lines;
 
@@ -598,7 +812,7 @@ void StringsAttributeParser()
         hrml_queries.push_back(input_line);
     }
 
-#if 0
+#if 1
     CommonUtilities::PrintElements(hrml_source,"Input HRML source",true);
     CommonUtilities::PrintElements(hrml_queries, "Input HRML queries",true);
 #endif // 0
@@ -607,8 +821,28 @@ void StringsAttributeParser()
     // and store them in a map
     std::map<string,vector<pair<string,string>>> parsed_data; // map of key = tagname, value = list of pairs (attributename, value)
 
+    std::vector<ParsedData> parsed_data_list;
 
+    // opening tag format:
+    // <tag-name attribute1-name = "value1" attribute2-name = "value2" ... >
+
+    // closing tag format:
+    // < / tag - name >
+
+    for (auto elem : hrml_source) {
+        string cur_line = elem;
+        
+        ParsedData pd;
+        ParseHRMLCode(cur_line,pd);
+        
+
+        //pd.attribute_value_map;
+        //pd.tag_name;
+        
+        cout << endl;
+    }
 }
+} // end namespace
 ///////////////////////////////////////////////////////////
 
 ///////////////////////////////////////////////////////////
@@ -640,7 +874,7 @@ void HackerRankChallenges::RunDomainCppChallenges()
 
     //StringsStream();
 
-    StringsAttributeParser();
+    StringAttributeParser::StringsAttributeParser();
 }
 
 
