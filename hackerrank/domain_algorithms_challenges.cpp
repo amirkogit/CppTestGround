@@ -126,13 +126,49 @@ void WarmupStaircase()
 }
 //////////////////////////////////////////////////////////////////////////////////////
 
+//////////////////////////////////////////////////////////////////////////////////////
+void ImplDivisibleSumPairs()
+{
+    // read size of array
+    int n;
+    cin >> n;
+
+    // read positive integer k (number to test for evenly divisibility)
+    int k;
+    cin >> k;
+
+    vector<int> arr(n);
+
+    // read all numbers
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    int count = 0;
+    for (int i = 0; i < arr.size() - 1; i++) {
+        for (int j = i + 1; j < arr.size(); j++) {
+#if 0
+            cout << "(" << i << "," << j << "):" << arr[i] << "+" << arr[j] << " = " << arr[i] + arr[j] << endl;
+#endif // 0
+            if (((arr[i] + arr[j]) % k) == 0) {
+                count++;
+            }
+        }
+    }
+
+    cout << count;
+}
+//////////////////////////////////////////////////////////////////////////////////////
+
 void HackerRankChallenges::RunDomainAlgorithmsChallenges()
 {
     std::cout << "Running all algorithm domain challenges." << endl;
 
     //WarmupPlusMinus();
 
-    WarmupStaircase();
+    //WarmupStaircase();
+
+    ImplDivisibleSumPairs();
 }
 
 

@@ -50,9 +50,9 @@ void HackerRankChallenges::RunAllDemos()
 
     //Run30DayChallenges();
 
-    //RunDomainAlgorithmsChallenges();
+    RunDomainAlgorithmsChallenges();
 
-    RunDomainDataStructuresChallenges();
+    //RunDomainDataStructuresChallenges();
 
     //RunWeekOfCode21Challenges();
 
