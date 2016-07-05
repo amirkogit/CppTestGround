@@ -148,8 +148,55 @@ namespace ArrayLeftRotation {
         }
     }
 } // end of namespace ArrayLeftRotation
-  //////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////
 
+//////////////////////////////////////////////////////////////////////////////////////
+void ArraysSparseArrays()
+{
+    // read total size of input string array
+    int n; 
+    cin >> n;
+    cin.ignore();
+
+    // read all strings
+    vector<string> string_list;
+    string_list.reserve(n);
+    for (int i = 0; i < n; i++) {
+        string cur_string;
+        getline(cin, cur_string);
+        string_list.push_back(cur_string);
+    }
+
+    // read total query size
+    int q; 
+    cin >> q;
+    cin.ignore();
+
+    // read all queries
+    vector<string> query_list;
+    query_list.reserve(q);
+    for (int i = 0; i < q; i++) {
+        string cur_string;
+        getline(cin, cur_string);
+        query_list.push_back(cur_string);
+    }
+
+    //CommonUtilities::PrintElements(string_list, "Input strings..");
+    //CommonUtilities::PrintElements(query_list, "Query strings ...");
+
+    // process all queries
+    int count = 0;
+    for (auto query_string : query_list) {
+        for (auto input_string : string_list) {
+            if (query_string.compare(input_string) == 0) {
+                count++;
+            }
+        }
+        cout << count << endl;
+        count = 0; // reset for next usage
+    }
+}
+//////////////////////////////////////////////////////////////////////////////////////
 
 void HackerRankChallenges::RunDomainDataStructuresChallenges()
 {
@@ -157,7 +204,9 @@ void HackerRankChallenges::RunDomainDataStructuresChallenges()
 
      //DynamicArrays::DynamicArrays();
 
-     ArrayLeftRotation::ArrayLeftRotation();
+     //ArrayLeftRotation::ArrayLeftRotation();
+
+     ArraysSparseArrays();
 }
 
 
