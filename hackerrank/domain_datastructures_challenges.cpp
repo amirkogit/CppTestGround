@@ -198,6 +198,173 @@ void ArraysSparseArrays()
 }
 //////////////////////////////////////////////////////////////////////////////////////
 
+//////////////////////////////////////////////////////////////////////////////////////
+namespace LinkedList {
+    // challenges related to linkedlist
+
+    // Node of a linked list is defined as
+    struct Node {
+        int data;
+        Node* next;
+    };
+
+    // print elements of a linked list on console
+    void Print(Node* head)
+    {
+        Node* cur_node = head;
+
+        // traverse each element of a node and print its content
+        while (cur_node != nullptr) {
+            cout << cur_node->data << endl;
+            cur_node = cur_node->next;
+        }
+    }
+
+    // insert a node at the tail of a linked list
+    // returns the head of an updated linked list
+    Node* InsertAtTail(Node* head, int data)
+    {
+        // create a new node
+        Node* new_node = new Node;
+        new_node->data = data;
+        new_node->next = nullptr;
+
+        Node* cur_node = head;
+        if (cur_node == nullptr) {
+            head = new_node;
+        }
+        else {
+            cur_node = head;
+
+            // traverse to the tail
+            while (cur_node->next != nullptr) {
+                cur_node = cur_node->next;
+            }
+
+            cur_node->next = new_node;
+        }
+
+        return head;
+    }
+   
+    // insert a node at the head of a linked list
+    // returns the head of an updated linked list
+    Node* InsertAtHead(Node* head, int data)
+    {
+        // create a new node
+        Node* new_node = new Node;
+        new_node->data = data;
+        new_node->next = nullptr;
+
+        Node* cur_node = head;
+
+        // check if the list is empty
+        if (cur_node == nullptr) {
+            head = new_node;
+        }
+        else {
+            Node* before = head;
+            head = new_node;
+            head->next = before;
+        }
+
+        return head;
+    }
+
+    // insert a node at specific position in a linked list
+    // returns the head of an updated linked list
+    Node* InsertAtNth(Node* head, int data, int position)
+    {
+        // create a new node
+        Node* new_node = new Node;
+        new_node->data = data;
+        new_node->next = nullptr;
+
+        int count = 0;
+        Node* prev_node = nullptr;
+        Node* cur_node = head;
+
+        while (cur_node != nullptr && count < position) {
+            count++;
+            prev_node = cur_node;
+            cur_node = cur_node->next;
+        }
+
+        if (count != position) {
+            cout << "Linked list doesn't contain enough nodes!";
+        }
+        else {
+            if (prev_node == nullptr) {
+                // insert at head
+                new_node->next = head;
+                head = new_node;
+            }
+            else {
+                new_node->next = cur_node;
+                prev_node->next = new_node;
+            }
+        }
+
+        return head;
+    }
+
+    // demo to print the data of a single linked list
+    void RunLinkedListDemo()
+    {
+        // Test: 1 inserting node at tail
+        {
+            cout << "Inserting 2,4,8 in list [1] at tail and printing them." << endl;
+
+            Node* head = new Node;
+            head->data = 1;
+            head->next = nullptr;
+
+            head = InsertAtTail(head, 2);
+            head = InsertAtTail(head, 4);
+            head = InsertAtTail(head, 8);
+
+            Print(head);
+        }
+
+        // Test: 2 inserting node at head
+        {
+            cout << endl;
+            cout << "Inserting 4,5,20,21 in list [3] at head and printing them" << endl;
+
+            Node* head = new Node;
+            head->data = 3;
+            head->next = nullptr;
+
+            head = InsertAtHead(head, 4);
+            head = InsertAtHead(head, 5);
+            head = InsertAtHead(head, 20);
+            head = InsertAtHead(head, 21);
+
+            Print(head);
+        }
+
+        // Test: 3 inserting node at Nth position
+        {
+            cout << endl;
+            cout << "Inserting 20 in list [5 2 3 8 42] at position 4" << endl;
+
+            Node* head = nullptr;
+            head = InsertAtTail(head, 5);
+            head = InsertAtTail(head, 2);
+            head = InsertAtTail(head, 3);
+            head = InsertAtTail(head, 8);
+            head = InsertAtTail(head, 42);
+
+            head = InsertAtNth(head, 20, 4);
+
+            Print(head);
+        }
+
+    }// end of RunLinkedListDemo()
+
+} // end of namespace linkedlist
+//////////////////////////////////////////////////////////////////////////////////////
+
 void HackerRankChallenges::RunDomainDataStructuresChallenges()
 {
      std::cout << "Running all data structures domain challenges. " << endl;
@@ -206,7 +373,9 @@ void HackerRankChallenges::RunDomainDataStructuresChallenges()
 
      //ArrayLeftRotation::ArrayLeftRotation();
 
-     ArraysSparseArrays();
+     //ArraysSparseArrays();
+
+     LinkedList::RunLinkedListDemo();
 }
 
 
