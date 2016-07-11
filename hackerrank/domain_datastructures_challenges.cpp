@@ -410,6 +410,44 @@ namespace LinkedList {
         return head;
     }
 
+    // compare two linked lists if they are equal
+    // return 1 if two lists are equal, otherwise return 0
+    int CompareLists(Node* headA, Node* headB)
+    {
+        int result = 0;
+
+        Node* cur_node_A = headA;
+        Node* cur_node_B = headB;
+
+        int countA = 0;
+        int countB = 0;
+
+        while (cur_node_A != nullptr && cur_node_B != nullptr) {
+            if (cur_node_A->data == cur_node_B->data) {
+                result = 1;
+            }
+            else {
+                result = 0;
+                break;
+            }
+            cur_node_A = cur_node_A->next;
+            cur_node_B = cur_node_B->next;
+            countA++;
+            countB++;
+        }
+
+        if (cur_node_A == nullptr && cur_node_B == nullptr) {
+            // check count if they are equal, this means we checked all elements of both list
+            result = (countA == countB) ? 1 : 0;
+        }
+        else {
+            // we still haven't read all elements of one of the list which clearly means they are unequal
+            return 0;
+        }
+
+        return result;
+    }
+
     // demo to print the data of a single linked list
     void RunLinkedListDemo()
     {
@@ -517,6 +555,34 @@ namespace LinkedList {
 
             cout << "Reverse order:\n";
             Reverse(head);
+        }
+
+        // Test: 7 compare lists
+        {
+            cout << endl;
+            cout << "Compare if two linked lists are equal!" << endl;
+
+            Node* headA = nullptr;
+            headA = InsertAtTail(headA, 1);
+            headA = InsertAtTail(headA, 3);
+            headA = InsertAtTail(headA, 5);
+            //headA = InsertAtTail(headA, 20);
+
+            cout << "List A:\n";
+            Print(headA);
+
+            Node* headB = nullptr;
+            headB = InsertAtTail(headB, 1);
+            headB = InsertAtTail(headB, 3);
+            headB = InsertAtTail(headB, 5);
+            headB = InsertAtTail(headB, 20);
+
+            cout << "List B:\n";
+            Print(headB);
+
+            int result = CompareLists(headA, headB);
+            cout << "\nCompare list result: " << result;
+
         }
 
     }// end of RunLinkedListDemo()
