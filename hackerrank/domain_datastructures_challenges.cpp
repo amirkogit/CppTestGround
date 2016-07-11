@@ -310,7 +310,7 @@ namespace LinkedList {
 
     // delete a node at a given position in a linked list
     // returns the head of an updated linked list
-    Node* Delete(Node* head, int position)
+    Node* DeleteAtNth(Node* head, int position)
     {
         int count = 0;
         Node* prev_node = nullptr;
@@ -415,7 +415,7 @@ namespace LinkedList {
             Print(head);
 
             cout << "\nAfter deleting:\n";
-            head = Delete(head, 0);
+            head = DeleteAtNth(head, 0);
 
             Print(head);
         }
