@@ -308,6 +308,46 @@ namespace LinkedList {
         return head;
     }
 
+    // delete a node at a given position in a linked list
+    // returns the head of an updated linked list
+    Node* Delete(Node* head, int position)
+    {
+        int count = 0;
+        Node* prev_node = nullptr;
+        Node* cur_node = head;
+
+        while (cur_node != nullptr && count < position) {
+            count++;
+            prev_node = cur_node;
+            cur_node = cur_node->next;
+        }
+
+        if (count != position) {
+            cout << "Linked list doesn't contain enough nodes!";
+        }
+        else {
+            if (prev_node == nullptr) {
+                // delete the head
+                Node* temp = cur_node;
+                cur_node = cur_node->next;
+
+                // free the node
+                delete(temp);
+
+                // update the head node
+                head = cur_node;
+            }
+            else {
+                prev_node->next = (prev_node->next)->next;
+                    
+                // free the node
+                delete(cur_node);
+            }
+        }
+
+        return head;
+    }
+
     // demo to print the data of a single linked list
     void RunLinkedListDemo()
     {
@@ -356,6 +396,26 @@ namespace LinkedList {
             head = InsertAtTail(head, 42);
 
             head = InsertAtNth(head, 20, 4);
+
+            Print(head);
+        }
+
+        // Test: 4 deleting a node at a given position
+        {
+            cout << endl;
+            cout << "Deleting a node in list [1 3 5 10] at position 0" << endl;
+
+            Node* head = nullptr;
+            head = InsertAtTail(head, 1);
+            head = InsertAtTail(head, 3);
+            head = InsertAtTail(head, 5);
+            head = InsertAtTail(head, 20);
+
+            cout << "Before deleting:\n";
+            Print(head);
+
+            cout << "\nAfter deleting:\n";
+            head = Delete(head, 0);
 
             Print(head);
         }
