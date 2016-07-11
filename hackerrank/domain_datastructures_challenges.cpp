@@ -375,6 +375,41 @@ namespace LinkedList {
         }
     }
 
+    // Reversing the order of a given single linked list
+    // The head pointer given may be null meaning that the initial list is empty.
+    Node* Reverse(Node* head)
+    {
+        //To reverse a linked list, iterate through the list and change the next node to the previous node 
+        //by keeping a track of the previous node for each node.
+        //
+        //Reverse(Node  head)
+        //prev=NULL       //Previous Pointer
+        //cur=head        //Current Node
+        //nxt=*cur.next   //Next Pointer
+        //while cur is not NULL
+        //    nxt=(*cur).next
+        //    (*cur).next=prev
+        //    prev=cur
+        //    cur=nxt
+        //head=prev
+        //return head
+
+        Node* cur_node = head;
+        Node* next_node = cur_node->next;
+        Node* previous_node = nullptr;
+
+        while (cur_node != nullptr) {
+            next_node = cur_node->next;
+            cur_node->next = previous_node;
+            previous_node = cur_node;
+            cur_node = next_node;
+        }
+
+        head = previous_node;
+        Print(head);
+        return head;
+    }
+
     // demo to print the data of a single linked list
     void RunLinkedListDemo()
     {
@@ -464,6 +499,24 @@ namespace LinkedList {
             cout << "Reverse printing:\n";
             ReversePrint(head);
 
+        }
+
+        // Test: 6 Reverse the linked list
+        {
+            cout << endl;
+            cout << "Reverse a single linked list" << endl;
+
+            Node* head = nullptr;
+            head = InsertAtTail(head, 1);
+            head = InsertAtTail(head, 3);
+            head = InsertAtTail(head, 5);
+            head = InsertAtTail(head, 20);
+
+            cout << "Normal order:\n";
+            Print(head);
+
+            cout << "Reverse order:\n";
+            Reverse(head);
         }
 
     }// end of RunLinkedListDemo()
