@@ -348,6 +348,21 @@ namespace LinkedList {
         return head;
     }
 
+    // Print the elements of a linked list in revese order
+    // head pointer could be null as well as empty list
+    void ReversePrint(Node* head)
+    {
+        // create a new linked list
+        Node* cur_node = head;
+        Node* new_list = nullptr;
+        
+        while (cur_node != nullptr) {
+            new_list = InsertAtHead(new_list,cur_node->data);
+            cur_node = cur_node->next;
+        }
+        Print(new_list);
+    }
+
     // demo to print the data of a single linked list
     void RunLinkedListDemo()
     {
@@ -418,6 +433,25 @@ namespace LinkedList {
             head = DeleteAtNth(head, 0);
 
             Print(head);
+        }
+
+        // Test: 5 Reverse print a node
+        {
+            cout << endl;
+            cout << "Reverse printing the contents of a single linked list" << endl;
+
+            Node* head = nullptr;
+            head = InsertAtTail(head, 1);
+            head = InsertAtTail(head, 3);
+            head = InsertAtTail(head, 5);
+            head = InsertAtTail(head, 20);
+
+            cout << "Normal printing:\n";
+            Print(head);
+
+            cout << "Reverse printing:\n";
+            ReversePrint(head);
+
         }
 
     }// end of RunLinkedListDemo()
