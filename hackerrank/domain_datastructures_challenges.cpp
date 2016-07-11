@@ -352,6 +352,8 @@ namespace LinkedList {
     // head pointer could be null as well as empty list
     void ReversePrint(Node* head)
     {
+        // method: 1
+#if 0
         // create a new linked list
         Node* cur_node = head;
         Node* new_list = nullptr;
@@ -361,6 +363,16 @@ namespace LinkedList {
             cur_node = cur_node->next;
         }
         Print(new_list);
+#endif // 0
+
+        // method: 2 using recursive call
+        if (head == nullptr) {
+            return;
+        }
+        else {
+            ReversePrint(head->next);
+            cout << head->data << endl;
+        }
     }
 
     // demo to print the data of a single linked list
