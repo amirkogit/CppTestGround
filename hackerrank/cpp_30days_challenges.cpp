@@ -351,6 +351,43 @@ void Day112DArrays()
 }
 //////////////////////////////////////////////////////////////////////////////////////
 
+//////////////////////////////////////////////////////////////////////////////////////
+// bubble sort
+void Day20Sorting()
+{
+    int n;
+    cin >> n;
+    vector<int> a(n);
+    for (int a_i = 0; a_i < n; a_i++) {
+        cin >> a[a_i];
+    }
+
+    int total_number_of_swaps = 0;
+
+    for (int i = 0; i < n; i++) {
+        int number_of_swaps = 0;
+
+        for (int j = 0; j < n - 1; j++) {
+            if (a[j] > a[j + 1]) {
+                swap(a[j], a[j + 1]);
+                number_of_swaps++;
+            }
+        }
+
+        total_number_of_swaps += number_of_swaps;
+
+        if (number_of_swaps == 0) {
+            break;
+        }
+    }
+
+    cout << "Array is sorted in " << total_number_of_swaps << " swaps." << endl;
+    cout << "First Element: " << a[0] << endl;
+    cout << "Last Element: " << a[n - 1] << endl;
+    
+    CommonUtilities::PrintElements(a, "sorted array:");
+}
+//////////////////////////////////////////////////////////////////////////////////////
 
 void HackerRankChallenges::Run30DayChallenges()
 {
@@ -370,6 +407,8 @@ void HackerRankChallenges::Run30DayChallenges()
 
     //Day10BinaryNumbers();
 
-    Day112DArrays();
+    //Day112DArrays();
+
+    Day20Sorting();
 }
 
