@@ -34,6 +34,8 @@
 #include <stack>
 #include <functional>
 #include <cassert>
+#include <sstream>
+#include < queue>
 
 // other includes
 #include "..\src\common_utilities.h"
@@ -448,6 +450,7 @@ namespace LinkedList {
         return result;
     }
 
+
     // demo to print the data of a single linked list
     void RunLinkedListDemo()
     {
@@ -590,6 +593,102 @@ namespace LinkedList {
 } // end of namespace linkedlist
 //////////////////////////////////////////////////////////////////////////////////////
 
+///////////////////////////////////////////////////
+namespace Tree {
+    // challenges related to Tree
+
+    // basic data structure to hold the tree information
+    class Node {
+    public:
+        int data;
+        Node* left;
+        Node* right;
+
+        Node(int d) {
+            data = d;
+            left = right = nullptr;
+        }
+    };
+
+    // insert a data in a binary search tree, and returns the root of the updated tree
+    Node* Insert(Node* root, int data) {
+        if (root == nullptr) {
+            return new Node(data);
+        }
+        else {
+            Node* cur = nullptr;
+            if (data <= root->data) {
+                cur = Insert(root->left, data);
+                root->left = cur;
+            }
+            else {
+                cur = Insert(root->right, data);
+                root->right = cur;
+            }
+            return root;
+        }
+    }
+
+    // returns the height of a binary search tree
+    int GetHeight(Node* root) {
+        if (root == nullptr) return -1;
+        else {
+            return (1 + max(GetHeight(root->left), GetHeight(root->right)));
+        }
+    }
+
+    // Tree traversal: Level Order
+    void LevelOrder(Node* root) {
+        queue<Node*> queue;
+        Node* cur = root;
+
+        while (cur != nullptr) {
+            cout << cur->data << " ";
+
+            if (cur->left != nullptr) {
+                queue.push(cur->left);
+            }
+            if (cur->right != nullptr) {
+                queue.push(cur->right);
+            }
+
+            if (!queue.empty()) {
+                cur = queue.front();
+                queue.pop();
+            }
+            else {
+                cur = nullptr;
+            }
+        }
+    }
+
+    // run the tree demo
+    void RunTreeDemo() {
+        // Test : 1  Test the following
+        // a. Height of a tree
+        // b. Tree traversal : Level Order
+        {
+            Node* root = nullptr;
+            string tree_elements = "3 5 2 1 4 6 7";
+            std::stringstream input(tree_elements);
+            while (!input.eof()) {
+                int n;
+                input >> n;
+                root = Insert(root, n);
+            }
+
+            cout << "\nTree elements: " << tree_elements << endl;
+
+            int height = GetHeight(root);
+            cout << "Height of tree: " << height;
+
+            cout << "\nOutput of Level Order traversal: ";
+            LevelOrder(root);
+        }
+    }
+} // end of namespace Tree
+///////////////////////////////////////////////////
+
 void HackerRankChallenges::RunDomainDataStructuresChallenges()
 {
      std::cout << "Running all data structures domain challenges. " << endl;
@@ -600,7 +699,9 @@ void HackerRankChallenges::RunDomainDataStructuresChallenges()
 
      //ArraysSparseArrays();
 
-     LinkedList::RunLinkedListDemo();
+     //LinkedList::RunLinkedListDemo();
+
+     Tree::RunTreeDemo();
 }
 
 
