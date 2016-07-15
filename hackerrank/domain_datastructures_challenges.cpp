@@ -662,14 +662,48 @@ namespace Tree {
         }
     }
 
+    // Tree traversal : Inorder traversal
+    void InOrder(Node* root) {
+        Node* tree = root;
+        if (tree != nullptr) {
+            InOrder(tree->left);
+            cout << tree->data << " ";
+            InOrder(tree->right);
+        }
+    }
+
+    // Tree traversal : PostOrder traversal
+    void PostOrder(Node* root) {
+        Node* tree = root;
+        if (tree != nullptr) {
+            PostOrder(tree->left);
+            PostOrder(tree->right);
+            cout << tree->data << " ";
+        }
+    }
+
+    // Tree traversal : PreOrder traversal
+    void PreOrder(Node* root) {
+        Node* tree = root;
+        if (tree != nullptr) {
+            cout << tree->data << " ";
+            PreOrder(tree->left);
+            PreOrder(tree->right);
+        }
+    }
+
     // run the tree demo
     void RunTreeDemo() {
         // Test : 1  Test the following
         // a. Height of a tree
         // b. Tree traversal : Level Order
+        // c. Tree traversal : InOrder
+        // d. Tree traversal : PostOrder
+        // e. Tree traversal : PreOrder
         {
             Node* root = nullptr;
-            string tree_elements = "3 5 2 1 4 6 7";
+            //string tree_elements = "3 5 2 1 4 6 7";
+            string tree_elements = "4 6 2 3 1 7 5";
             std::stringstream input(tree_elements);
             while (!input.eof()) {
                 int n;
@@ -684,6 +718,15 @@ namespace Tree {
 
             cout << "\nOutput of Level Order traversal: ";
             LevelOrder(root);
+
+            cout << "\nOutput of Inorder traversal: ";
+            InOrder(root);
+
+            cout << "\nOutput of PostOrder traversal: ";
+            PostOrder(root);
+
+            cout << "\nOutput of PreOrder traversal: ";
+            PreOrder(root);
         }
     }
 } // end of namespace Tree
