@@ -428,7 +428,51 @@ namespace Primailty {
         }
     }
 } // end of namespace
+//////////////////////////////////////////////////////////////////////////////////////
 
+//////////////////////////////////////////////////////////////////////////////////////
+void Day26NestedLogic()
+{
+    int returned_day;
+    cin >> returned_day;
+    int returned_month;
+    cin >> returned_month;
+    int returned_year;
+    cin >> returned_year;
+
+    // read the expected dd//mm//yy
+    int expected_day;
+    cin >> expected_day;
+    int expected_month;
+    cin >> expected_month;
+    int expected_year;
+    cin >> expected_year;
+
+    // check differences
+    int year_diff = expected_year - returned_year;
+    int month_diff = expected_month - returned_month;
+    int day_diff = expected_day - returned_day;
+
+    // calculate fine
+
+    int fine = 0;
+
+    if (returned_year == expected_year) {
+        if (returned_month == expected_month) {
+            if (returned_day > expected_day) {
+                fine = (returned_day - expected_day) * 15;
+            }
+        }
+        else if (returned_month > expected_month) {
+            fine = (returned_month - expected_month) * 500;
+        }
+    }
+    else if (returned_year > expected_year) {
+        fine = 10000;
+    }
+
+    cout << fine;
+}
 //////////////////////////////////////////////////////////////////////////////////////
 
 void HackerRankChallenges::Run30DayChallenges()
@@ -453,6 +497,8 @@ void HackerRankChallenges::Run30DayChallenges()
 
     //Day20Sorting();
 
-    Primailty::Day25CheckPrime();
+    //Primailty::Day25CheckPrime();
+
+    Day26NestedLogic();
 }
 
