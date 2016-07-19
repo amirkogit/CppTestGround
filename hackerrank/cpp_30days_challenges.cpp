@@ -389,6 +389,48 @@ void Day20Sorting()
 }
 //////////////////////////////////////////////////////////////////////////////////////
 
+//////////////////////////////////////////////////////////////////////////////////////
+// time and complexity (checking prime)
+// complexity O(sqroot(n))
+
+namespace Primailty {
+    bool IsPrime(int n) {
+        int sqroot = sqrt(n);
+        if (n  < 2) return false;
+        for (int i = 2; i < sqroot; i++) {
+            if (n%i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    void Day25CheckPrime()
+    {
+        int t;
+        cin >> t;
+
+        std::vector<int> num;
+        num.reserve(t);
+        for (int i = 0; i < t; i++) {
+            int n;
+            cin >> n;
+            num.push_back(n);
+        }
+
+        for (auto elem : num) {
+            if (IsPrime(elem)) {
+                cout << "Prime" << endl;
+            }
+            else {
+                cout << "Not prime" << endl;
+            }
+        }
+    }
+} // end of namespace
+
+//////////////////////////////////////////////////////////////////////////////////////
+
 void HackerRankChallenges::Run30DayChallenges()
 {
     std::cout << "Running all 30 day challenges." << endl;
@@ -409,6 +451,8 @@ void HackerRankChallenges::Run30DayChallenges()
 
     //Day112DArrays();
 
-    Day20Sorting();
+    //Day20Sorting();
+
+    Primailty::Day25CheckPrime();
 }
 
