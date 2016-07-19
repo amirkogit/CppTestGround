@@ -482,6 +482,34 @@ namespace LinkedList {
         return false;
     }
 
+    // merge two sorted lists A and B into a single linked list
+    Node* MergeLists(Node* headA, Node* headB)
+    {
+        if (headA == nullptr && headB == nullptr) {
+            return nullptr;
+        }
+
+        if (headA == nullptr) {
+            return headB;
+        }
+
+        if (headB == nullptr) {
+            return headA;
+        }
+
+        Node* headC;
+        if (headA->data < headB->data) {
+            headC = headA;
+            headC->next = MergeLists(headA->next, headB);
+        }
+        else {
+            headC = headB;
+            headC->next = MergeLists(headA, headB->next);
+        }
+
+        return headC;
+    }
+
     // demo to print the data of a single linked list
     void RunLinkedListDemo()
     {
@@ -636,6 +664,33 @@ namespace LinkedList {
 
             cout << "List after removing duplicates:\n";
             Print(RemoveDuplicates(head));
+        }
+
+        // Test: 9 merged two sorted lists A and B into a single linked list
+        {
+            cout << endl;
+            cout << "Merge two sorted lists in a single list" << endl;
+
+            Node* headA = nullptr;
+            headA = InsertAtTail(headA, 1);
+            headA = InsertAtTail(headA, 3);
+            headA = InsertAtTail(headA, 5);
+            headA = InsertAtTail(headA, 6);
+
+            cout << "List A:\n";
+            Print(headA);
+
+            Node* headB = nullptr;
+            headB = InsertAtTail(headB, 2);
+            headB = InsertAtTail(headB, 4);
+            headB = InsertAtTail(headB, 7);
+
+            cout << "List B:\n";
+            Print(headB);
+
+            Node* merged_list = MergeLists(headA, headB);
+            cout << "Merged list:\n";
+            Print(merged_list);
         }
 
     }// end of RunLinkedListDemo()
