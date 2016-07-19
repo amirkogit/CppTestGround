@@ -450,6 +450,20 @@ namespace LinkedList {
         return result;
     }
 
+    // remove duplicates
+    Node* RemoveDuplicates(Node* head)
+    {
+        Node* cur_node = head;
+        while (cur_node != nullptr) {
+            while (cur_node->next != nullptr && cur_node->data == cur_node->next->data) {
+                Node* temp = cur_node->next;
+                cur_node->next = cur_node->next->next;
+                delete temp;
+            }
+            cur_node = cur_node->next;
+        }
+        return head;
+    }
 
     // demo to print the data of a single linked list
     void RunLinkedListDemo()
@@ -585,7 +599,26 @@ namespace LinkedList {
 
             int result = CompareLists(headA, headB);
             cout << "\nCompare list result: " << result;
+        }
 
+        // Test: 8 remove duplicates
+        {
+            cout << endl;
+            cout << "Removing duplicate items in a sorted list" << endl;
+
+            Node* head = nullptr;
+            head = InsertAtTail(head,1);
+            head = InsertAtTail(head, 2);
+            head = InsertAtTail(head, 2);
+            head = InsertAtTail(head, 3);
+            head = InsertAtTail(head, 3);
+            head = InsertAtTail(head, 4);
+
+            cout << "List before removing duplicates:\n";
+            Print(head);
+
+            cout << "List after removing duplicates:\n";
+            Print(RemoveDuplicates(head));
         }
 
     }// end of RunLinkedListDemo()
@@ -742,9 +775,9 @@ void HackerRankChallenges::RunDomainDataStructuresChallenges()
 
      //ArraysSparseArrays();
 
-     //LinkedList::RunLinkedListDemo();
+     LinkedList::RunLinkedListDemo();
 
-     Tree::RunTreeDemo();
+     //Tree::RunTreeDemo();
 }
 
 
