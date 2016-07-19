@@ -465,6 +465,23 @@ namespace LinkedList {
         return head;
     }
 
+    // detecting cycle
+    bool HasCycle(Node* head)
+    {
+        Node* ptr_slow = head;
+        Node* ptr_fast = head;
+
+        while (ptr_slow != nullptr && ptr_fast != nullptr && ptr_fast->next != nullptr) {
+            ptr_slow = ptr_slow->next;
+            ptr_fast = ptr_fast->next->next;
+
+            if (ptr_slow == ptr_fast) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     // demo to print the data of a single linked list
     void RunLinkedListDemo()
     {
