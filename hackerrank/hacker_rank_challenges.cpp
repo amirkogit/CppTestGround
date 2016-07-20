@@ -48,11 +48,11 @@ void HackerRankChallenges::RunAllDemos()
 
     //RunDomainCppChallenges();
 
-    //Run30DayChallenges();
+    Run30DayChallenges();
 
     //RunDomainAlgorithmsChallenges();
 
-    RunDomainDataStructuresChallenges();
+    //RunDomainDataStructuresChallenges();
 
     //RunWeekOfCode21Challenges();
 

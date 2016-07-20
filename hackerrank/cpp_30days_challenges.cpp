@@ -34,6 +34,7 @@
 #include <stack>
 #include <functional>
 #include <cassert>
+#include <regex>
 
 // other includes
 #include "..\src\common_utilities.h"
@@ -475,6 +476,34 @@ void Day26NestedLogic()
 }
 //////////////////////////////////////////////////////////////////////////////////////
 
+//////////////////////////////////////////////////////////////////////////////////////
+void Day28RegularExpressions()
+{
+    int N;
+    cin >> N;
+    
+    regex re(".+@gmail\\.com");
+    vector<string> filtered_names;
+
+    for (int a0 = 0; a0 < N; a0++) {
+        string firstName;
+        string emailID;
+        cin >> firstName >> emailID;
+
+        if (regex_match(emailID, re)) {
+            filtered_names.push_back(firstName);
+        }
+    }
+
+    // sort the names
+    sort(filtered_names.begin(), filtered_names.end());
+
+    for (const auto& elem : filtered_names) {
+        cout << elem << endl;
+    }
+}
+//////////////////////////////////////////////////////////////////////////////////////
+
 void HackerRankChallenges::Run30DayChallenges()
 {
     std::cout << "Running all 30 day challenges." << endl;
@@ -499,6 +528,8 @@ void HackerRankChallenges::Run30DayChallenges()
 
     //Primailty::Day25CheckPrime();
 
-    Day26NestedLogic();
+    //Day26NestedLogic();
+
+    Day28RegularExpressions();
 }
 
