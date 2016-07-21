@@ -205,6 +205,37 @@ void DPMaximumSubArray()
     }
 }
 
+//////////////////////////////////////////////////////////////////////////////////////
+
+// this solution will not work for Big integers!
+// come up with a solution that can handle very big numbers in C++
+void DPFibonacciModified()
+{
+    int first_term;
+    int second_term;
+    int n;
+    cin >> first_term >> second_term >> n;
+
+
+    vector<long long> fibo_series;
+    fibo_series.reserve(n);
+    fibo_series.push_back(first_term);
+    fibo_series.push_back(second_term);
+
+    for (int i = 2; i < n; i++) {
+        long long next_term = long long (first_term + (second_term * second_term));
+        fibo_series.push_back(next_term);
+        first_term = second_term;
+        second_term = next_term;
+    }
+
+    CommonUtilities::PrintElements(fibo_series, "Modified Fibonacci series");
+
+    cout << fibo_series[n-1];
+}
+
+//////////////////////////////////////////////////////////////////////////////////////
+
 void HackerRankChallenges::RunDomainAlgorithmsChallenges()
 {
     std::cout << "Running all algorithm domain challenges." << endl;
@@ -215,7 +246,10 @@ void HackerRankChallenges::RunDomainAlgorithmsChallenges()
 
     //ImplDivisibleSumPairs();
 
-    DPMaximumSubArray();
+    //DPMaximumSubArray();
+
+    DPFibonacciModified();
+
 }
 
 
