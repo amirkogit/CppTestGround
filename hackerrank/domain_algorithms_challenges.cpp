@@ -160,6 +160,51 @@ void ImplDivisibleSumPairs()
 }
 //////////////////////////////////////////////////////////////////////////////////////
 
+void DPMaximumSubArray()
+{
+    int no_of_testcases{ 0 };
+    cin >> no_of_testcases;
+
+    for (int i = 0; i < no_of_testcases; i++) {
+        int arr_size;
+        cin >> arr_size;
+
+        std::vector<int> arr;
+        arr.reserve(arr_size);
+        for (int i = 0; i < arr_size; i++) {
+            int n;
+            cin >> n;
+            arr.push_back(n);
+        }
+
+        int max_sum = -999999;
+        int sum_non_continuous_subarray = 0;
+        int sum_continuous_subarray = 0;
+
+        for (int i = 0; i < arr.size(); i++) {
+            sum_continuous_subarray += arr[i];
+            if (arr[i] > 0) {
+                sum_non_continuous_subarray += arr[i];
+            }
+            if (sum_continuous_subarray > max_sum) {
+                max_sum = sum_continuous_subarray;
+            }
+            if (sum_continuous_subarray < 0) {
+                sum_continuous_subarray = 0;
+            }
+        }
+
+        if (sum_non_continuous_subarray == 0) {
+            auto pos = std::max_element(arr.begin(), arr.end());
+            if (pos != arr.end()) {
+                sum_non_continuous_subarray = *pos;
+            }		
+        }
+
+        cout << max_sum << " " << sum_non_continuous_subarray << endl;
+    }
+}
+
 void HackerRankChallenges::RunDomainAlgorithmsChallenges()
 {
     std::cout << "Running all algorithm domain challenges." << endl;
@@ -168,7 +213,9 @@ void HackerRankChallenges::RunDomainAlgorithmsChallenges()
 
     //WarmupStaircase();
 
-    ImplDivisibleSumPairs();
+    //ImplDivisibleSumPairs();
+
+    DPMaximumSubArray();
 }
 
 
