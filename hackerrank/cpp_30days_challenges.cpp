@@ -504,6 +504,46 @@ void Day28RegularExpressions()
 }
 //////////////////////////////////////////////////////////////////////////////////////
 
+//////////////////////////////////////////////////////////////////////////////////////
+int GetMaxPossibleBitwiseAnd(int n, int k)
+{
+    int max_sum = -1;
+    for (int i = 1; i < n; i++) {
+        for (int j = i + 1; j <= n; j++) {
+            //cout << "A&B = " << i << "&" << j << "=" << (i&j) << endl; // for debuging
+            int sum = (i&j);
+            if (sum < k) {
+                if (max_sum < sum) {
+                    max_sum = sum;
+                }
+            }
+        }
+    }
+    return max_sum;
+}
+
+void Day29BitwiseAnd()
+{
+    // read total number of test cases
+    int t;
+    cin >> t;
+
+    // read input
+    vector<std::pair<int, int>> num_pair;
+
+    for (int a0 = 0; a0 < t; a0++) {
+        int n;
+        int k;
+        cin >> n >> k;
+        num_pair.push_back(std::make_pair(n, k));
+    }
+
+    for (const auto& elem : num_pair) {
+        cout << GetMaxPossibleBitwiseAnd(elem.first, elem.second) << endl;
+    }
+}
+//////////////////////////////////////////////////////////////////////////////////////
+
 void HackerRankChallenges::Run30DayChallenges()
 {
     std::cout << "Running all 30 day challenges." << endl;
@@ -530,6 +570,8 @@ void HackerRankChallenges::Run30DayChallenges()
 
     //Day26NestedLogic();
 
-    Day28RegularExpressions();
+    //Day28RegularExpressions();
+
+    Day29BitwiseAnd();
 }
 
