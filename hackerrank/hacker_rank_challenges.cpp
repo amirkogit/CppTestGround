@@ -50,13 +50,13 @@ void HackerRankChallenges::RunAllDemos()
 
     //Run30DayChallenges();
 
-    RunDomainAlgorithmsChallenges();
+    //RunDomainAlgorithmsChallenges();
 
     //RunDomainDataStructuresChallenges();
 
     //RunWeekOfCode21Challenges();
 
-    //RunWorldCodeSprint4Challenges();
+    RunWorldCodeSprint4Challenges();
 
     // wait for user input char
     getchar();

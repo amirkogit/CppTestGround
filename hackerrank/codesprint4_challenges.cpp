@@ -35,6 +35,9 @@
 #include <functional>
 #include <cassert>
 
+// other includes
+#include "..\src\common_utilities.h"
+
 using namespace std;
 
 //////////////////////////////////////////////////////////////////////////////////////
@@ -193,11 +196,119 @@ void WorldCodeSprint4EqualStacks()
 }
 //////////////////////////////////////////////////////////////////////////////////////
 
+namespace RookieRank {
+    void BirthDayCakeCandles() {
+        int no_of_candles;
+        cin >> no_of_candles;
+
+        std::map<int, int> map_height_count;
+
+        for (int i = 0; i < no_of_candles; i++) {
+            int h;
+            cin >> h;
+            map_height_count[h] = map_height_count[h] + 1;
+        }
+
+        auto pos = max_element(map_height_count.begin(), map_height_count.end());
+        cout << pos->second;
+    }
+
+    void CountingValleys() {
+        int no_of_steps;
+        cin >> no_of_steps;
+
+        cin.ignore();
+        std::string steps;
+        cin >> steps;
+
+        int no_of_valleys = 0;
+        int sea_level = 0;
+
+        bool valley_count_started = false;
+
+        for (auto c : steps) {
+            // record for valleys if below sea level
+            if (sea_level == 0 && (c == 'D' || c == 'd')) {
+                valley_count_started = true;
+            }
+
+
+            if (c == 'D' || c == 'd') {
+                sea_level--;
+            }
+            else if (c == 'U' || c == 'u') {
+                sea_level++;
+            }
+            //cout << "sea level value: " << sea_level << endl;
+
+            if (sea_level == 0 && (c == 'U' || c == 'u') && valley_count_started) {
+                no_of_valleys++;
+                valley_count_started = false; // reset
+            }
+        }
+
+        cout << no_of_valleys;
+    }
+
+    bool CheckForMagicSquare(const vector<vector<int>>& matrix) {
+        return true;
+    }
+
+    void MagicSquareForming() {
+        const int MAGIC_CONSTANT = 15;
+
+        // read input
+        vector<vector<int>> magic_square;
+
+        for (int i = 0; i < 3; i++) {
+            vector<int> row;
+            for (int j = 0; j < 3; j++) {
+                int n;
+                cin >> n;
+                row.push_back(n);
+            }
+            magic_square.push_back(row);
+        }
+
+#if 0
+        // print matrix
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                cout << magic_square[i][j] << " ";
+            }
+            cout << endl;
+        }
+#endif // 0
+
+        int min_cost = 0;
+        bool is_magic_square = false;
+
+        while(!is_magic_square) {
+            if (CheckForMagicSquare(magic_square)) {
+                is_magic_square = true;
+            }
+            else {
+                // rearrange elements and calculate cost
+            }
+        }
+
+        cout << min_cost;
+    }
+
+}// end of namespace RookieRank
+//////////////////////////////////////////////////////////////////////////////////////
+
 void HackerRankChallenges::RunWorldCodeSprint4Challenges()
 {
     std::cout << "Running all Code Sprint 4 challenges." << endl;
 
-    WorldCodeSprint4MinimumDistance();
+    //WorldCodeSprint4MinimumDistance();
 
-    WorldCodeSprint4EqualStacks();
+    //WorldCodeSprint4EqualStacks();
+
+    //RookieRank::BirthDayCakeCandles();
+
+    //RookieRank::CountingValleys();
+
+    RookieRank::MagicSquareForming();
 }
