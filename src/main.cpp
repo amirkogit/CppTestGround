@@ -32,6 +32,9 @@
 // hackerrank
 #include "..\hackerrank\hacker_rank_challenges.h"
 
+// pluralsight
+#include "..\pluralsight\stl_algorithms\stl_algo_demo.h"
+
 void RunInitializerDemo()
 {
     std::cout << "Initializer Demo\n";
@@ -122,6 +125,11 @@ void RunHackerRankChallengesDemo()
     HackerRankChallenges::RunAllDemos();
 }
 
+void RunPluralSightDemos()
+{
+    STLAlgorithms::RunAllDemos();
+}
+
 /////////////////////////////////////////////////////////////////
 // Dummy test stud for real quick testing
 // include headers specific for this testing //
@@ -140,8 +148,11 @@ int main()
 {
     RunDummy();
 
+    // pluralsight demos
+    RunPluralSightDemos();
+
     // hackerrank challenges demo
-    RunHackerRankChallengesDemo();
+    //RunHackerRankChallengesDemo();
 
     //RunInitializerDemo();
 

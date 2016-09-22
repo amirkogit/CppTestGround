@@ -26,10 +26,18 @@ add_executable(cppTestGround
     src/algorithms_demo.cpp
     hackerrank/hacker_rank_challenges.h
     hackerrank/hacker_rank_challenges.cpp
-	hackerrank/cpp_30days_challenges.cpp
-	hackerrank/domain_cpp_challenges.cpp
-	hackerrank/domain_algorithms_challenges.cpp
-	hackerrank/domain_datastructures_challenges.cpp
-	hackerrank/weekofcode21_challenges.cpp
-	hackerrank/codesprint4_challenges.cpp
+    hackerrank/cpp_30days_challenges.cpp
+    hackerrank/domain_cpp_challenges.cpp
+    hackerrank/domain_algorithms_challenges.cpp
+    hackerrank/domain_datastructures_challenges.cpp
+    hackerrank/weekofcode21_challenges.cpp
+    hackerrank/codesprint4_challenges.cpp
+    pluralsight/stl_algorithms/stl_algo_demo.h
+    pluralsight/stl_algorithms/stl_algo_demo.cpp
+    pluralsight/stl_algorithms/module2.cpp
+    pluralsight/stl_algorithms/module3.cpp
+    pluralsight/stl_algorithms/module4.cpp
+    pluralsight/stl_algorithms/module5.cpp
+    pluralsight/stl_algorithms/module6.cpp
+    pluralsight/stl_algorithms/module7.cpp
  )
