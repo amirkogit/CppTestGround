@@ -42,4 +42,6 @@ add_executable(cppTestGround
     pluralsight/stl_algorithms/module7.cpp
     src/sandbox.h
     src/sandbox.cpp
+    src/precompiled.h
+    src/precompiled.cpp
  )

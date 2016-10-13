@@ -17,41 +17,5 @@
 * along with this program; if not, write to the Free Software
 * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
+#include "Precompiled.h"
 
-#include "precompiled.h"
-
-void SimpleAssertDemo()
-{
-    ASSERT(4 == 5);
-}
-
-void SimpleVerifyDemo()
-{
-    auto e = ManualResetEvent{};
-    auto e2 = e;
-}
-
-void SimpleTraceDemo()
-{
-    Trace(L"1 + 2 = %d\n",1 + 2);
-}
-
-void SimpleTraceDemo2()
-{
-    TRACE(L"1 + 2 = %d\n", 1 + 2);
-}
-
-// ========================================================================
-auto SandboxMain() -> int
-{
-    //SimpleAssertDemo();
-
-    //SimpleVerifyDemo();
-
-    //SimpleTraceDemo();
-
-    SimpleTraceDemo2();
-
-    return 0;
-}
-// ========================================================================
