@@ -23,10 +23,6 @@
 #include <string>
 #include <iostream>
 
-#include <crtdbg.h>
-
-#define ASSERT _ASSERTE
-
 class CommonUtilities
 {
 public:

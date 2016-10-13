@@ -18,14 +18,9 @@
 * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-#include "common_utilities.h"
-
-static_assert(sizeof(float) == 4, "can't serialize floats !");
-
-
-
-#include <windows.h>
+#include <crtdbg.h>
 #include <stdio.h>
+#include <windows.h>
 
 #define ASSERT _ASSERTE
 
