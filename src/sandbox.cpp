@@ -22,10 +22,66 @@
 
 static_assert(sizeof(float) == 4, "can't serialize floats !");
 
-auto SandboxMain() -> int
+
+
+#include <Windows.h>
+#define ASSERT _ASSERTE
+
+#ifdef _DEBUG
+#define VERIFY ASSERT
+#else
+#define VERIFY(expression)(expresion)
+#endif
+
+struct LastException
+{
+    DWORD result;
+    LastException() : result{ GetLastError() } {}
+};
+
+struct ManualResetEvent
+{
+    HANDLE m_handle;
+
+    ManualResetEvent()
+    {
+        m_handle = CreateEvent(nullptr,
+                               true,
+                               false,
+                               nullptr);
+
+        if (!m_handle) {
+            throw LastException();
+        }
+    }
+
+    ~ManualResetEvent()
+    {
+        VERIFY(CloseHandle(m_handle));
+    }
+};
+
+
+// ========================================================================
+
+void SimpleAssertDemo()
 {
     ASSERT(4 == 5);
+}
 
+void SimpleVerifyDemo()
+{
+    auto e = ManualResetEvent{};
+    auto e2 = e;
+}
+
+// ========================================================================
+auto SandboxMain() -> int
+{
+    //SimpleAssertDemo();
+
+    SimpleVerifyDemo();
 
     return 0;
 }
+// ========================================================================
