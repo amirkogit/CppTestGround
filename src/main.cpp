@@ -35,6 +35,9 @@
 // pluralsight
 #include "..\pluralsight\stl_algorithms\stl_algo_demo.h"
 
+// sanbox for testing general stuffs
+#include "sandbox.h"
+
 void RunInitializerDemo()
 {
     std::cout << "Initializer Demo\n";
@@ -135,21 +138,99 @@ void RunPluralSightDemos()
 // include headers specific for this testing //
 //
 //
+
+#include <iostream>
+#include <string>
+#include <vector>
+#include <memory>
+using namespace std;
 // end header includes //
+
+namespace Dummy {
+class Person {
+public:
+    string name;
+    shared_ptr<Person> mother;
+    shared_ptr<Person> father;
+    vector<weak_ptr<Person>> kids;  // weak pointer !!!
+
+    Person(const string& n,
+        shared_ptr<Person> m = nullptr,
+        shared_ptr<Person> f = nullptr)
+        : name(n), mother(m), father(f) {
+    }
+
+    ~Person() {
+        cout << "delete " << name << endl;
+    }
+};
+
+shared_ptr<Person> initFamily(const string& name)
+{
+    shared_ptr<Person> mom(new Person(name + "'s mom"));
+    shared_ptr<Person> dad(new Person(name + "'s dad"));
+    shared_ptr<Person> kid(new Person(name, mom, dad));
+    mom->kids.push_back(kid);
+    dad->kids.push_back(kid);
+    return kid;
+}
+
+
+template<typename T>
+using uniquePtr = std::unique_ptr<T, void(*)(T*)>; // alias template
+
 
 void RunDummy()
 {
+    uniquePtr<int> up(new int[10], [](int* p) {
+        delete[] p;
+    });
+
+
+    auto my_deleter = [](int* p) { delete[] p; };
+
+
+    std::unique_ptr<int, decltype(my_deleter)> up1(new int[10],my_deleter);
+
+
+    //shared_ptr<Person> p = initFamily("nico");
+
+    //cout << "nico's family exists" << endl;
+    //cout << "- nico is shared " << p.use_count() << " times" << endl;
+
+    //cout << "- name of 1st kid of nico's mom: "
+    //    << p->mother->kids[0].lock()->name << endl;
+
+    //p = nullptr;
+
+    //p = initFamily("jim");
+    //cout << "jim's family exists" << endl;
+
+    //int* n = new int;
+    //shared_ptr<int> sp1(n);
+    //shared_ptr<int> sp2 = sp1;
+
+
+    //std::unique_ptr<std::string[]> up(new std::string[10]);
+
+
+    
+
+
 }
+} // end of namespace Dummy
 
 /////////////////////////////////////////////////////////////////
 
 
 int main()
 {
-    RunDummy();
+    return SandboxMain();
+
+    //Dummy::RunDummy();
 
     // pluralsight demos
-    RunPluralSightDemos();
+    //RunPluralSightDemos();
 
     // hackerrank challenges demo
     //RunHackerRankChallengesDemo();

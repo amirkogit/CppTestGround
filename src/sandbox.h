@@ -20,39 +20,4 @@
 
 #pragma once
 
-#include <string>
-#include <iostream>
-
-#include <crtdbg.h>
-
-#define ASSERT _ASSERTE
-
-class CommonUtilities
-{
-public:
-    CommonUtilities();
-    ~CommonUtilities();
-
-    template<typename T>
-    inline static void PrintElements(const T& coll,
-        const std::string& optstring = "", const bool use_newline = false)
-    {
-        std::cout << optstring << endl;
-
-        if (use_newline) {
-            for (const auto& elem : coll) {
-                std::cout << elem << endl;
-            }
-        }
-        else {
-            for (const auto& elem : coll) {
-                std::cout << elem << ' ';
-            }
-        }
-
-        std::cout << endl;
-    }
-
-    static std::string ToUpper(const std::string& src);
-};
-
+auto SandboxMain()-> int;

@@ -40,4 +40,6 @@ add_executable(cppTestGround
     pluralsight/stl_algorithms/module5.cpp
     pluralsight/stl_algorithms/module6.cpp
     pluralsight/stl_algorithms/module7.cpp
+    src/sandbox.h
+    src/sandbox.cpp
  )

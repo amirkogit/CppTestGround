@@ -18,41 +18,14 @@
 * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-#pragma once
+#include "common_utilities.h"
 
-#include <string>
-#include <iostream>
+static_assert(sizeof(float) == 4, "can't serialize floats !");
 
-#include <crtdbg.h>
-
-#define ASSERT _ASSERTE
-
-class CommonUtilities
+auto SandboxMain() -> int
 {
-public:
-    CommonUtilities();
-    ~CommonUtilities();
+    ASSERT(4 == 5);
 
-    template<typename T>
-    inline static void PrintElements(const T& coll,
-        const std::string& optstring = "", const bool use_newline = false)
-    {
-        std::cout << optstring << endl;
 
-        if (use_newline) {
-            for (const auto& elem : coll) {
-                std::cout << elem << endl;
-            }
-        }
-        else {
-            for (const auto& elem : coll) {
-                std::cout << elem << ' ';
-            }
-        }
-
-        std::cout << endl;
-    }
-
-    static std::string ToUpper(const std::string& src);
-};
-
+    return 0;
+}
