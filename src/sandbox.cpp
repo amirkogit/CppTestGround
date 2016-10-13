@@ -24,7 +24,9 @@ static_assert(sizeof(float) == 4, "can't serialize floats !");
 
 
 
-#include <Windows.h>
+#include <windows.h>
+#include <stdio.h>
+
 #define ASSERT _ASSERTE
 
 #ifdef _DEBUG
@@ -62,6 +64,66 @@ struct ManualResetEvent
 };
 
 
+#ifdef _DEBUG
+inline auto Trace(wchar_t const* format, ...)->void
+{
+    va_list args;
+    va_start(args,format);
+
+    wchar_t buffer[256];
+
+    ASSERT(-1 != _vsnwprintf_s(buffer,
+                               _countof(buffer)-1,
+                               format,
+                               args));
+    va_end(args);
+
+    OutputDebugStringW(buffer);
+}
+
+struct Tracer
+{
+    char const* m_filename;
+    unsigned m_line;
+
+    Tracer(char const* filename, unsigned const line) :
+        m_filename{ filename },
+        m_line{ line }
+    {
+
+    }
+
+    template<typename... Args>
+    auto operator()(wchar_t const* format, Args...args) const -> void
+    {
+        wchar_t buffer[256];
+
+        auto count = swprintf_s(buffer,
+            L"%S(%d): ",
+            m_filename,
+            m_line);
+
+        ASSERT(-1 != count);
+
+        ASSERT(-1 != _snwprintf_s(buffer + count,
+            _countof(buffer) - count,
+            _countof(buffer) - count - 1,
+            format,
+            args...));
+
+        OutputDebugStringW(buffer);
+    }
+};
+#endif
+
+#ifdef _DEBUG
+#define TRACE Tracer(__FILE__, __LINE__)
+#else
+#define TRACE __noop
+#endif
+
+
+// ========================================================================
 // ========================================================================
 
 void SimpleAssertDemo()
@@ -75,12 +137,26 @@ void SimpleVerifyDemo()
     auto e2 = e;
 }
 
+void SimpleTraceDemo()
+{
+    Trace(L"1 + 2 = %d\n",1 + 2);
+}
+
+void SimpleTraceDemo2()
+{
+    TRACE(L"1 + 2 = %d\n", 1 + 2);
+}
+
 // ========================================================================
 auto SandboxMain() -> int
 {
     //SimpleAssertDemo();
 
-    SimpleVerifyDemo();
+    //SimpleVerifyDemo();
+
+    //SimpleTraceDemo();
+
+    SimpleTraceDemo2();
 
     return 0;
 }
