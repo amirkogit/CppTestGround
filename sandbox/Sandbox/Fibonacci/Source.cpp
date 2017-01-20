@@ -15,12 +15,12 @@ int FiboWithRecursion(int n)
 
 // calculate the nth fibonacci number
 // Complexity: Big-Theta (2n)
-int FiboWithoutRecursion(int n)
+long FiboWithoutRecursion(long n)
 {
-    int low = 1;
-    int high = 1;
+    long low = 1;
+    long high = 1;
 
-    for (int i = 0; i < n; i++) {
+    for (long i = 0; i < n; i++) {
         auto oldhigh = high;
         high = low + high;
         low = oldhigh;
@@ -31,20 +31,28 @@ int FiboWithoutRecursion(int n)
 
 // calculate the nth fibonacci number
 // Complexity:
-void FiboWithDP(int num)
-{
+static long fiboCache[200];
 
+long FiboWithDP(long n)
+{
+    if (n <= 1) {
+        fiboCache[n] = 1;
+    }
+    if (fiboCache[n] == 0) {
+        fiboCache[n] = FiboWithDP(n - 1) + FiboWithDP(n - 2);
+    }
+    return fiboCache[n];
 }
 
 int main()
 {
     cout << "Fibonacci series demo..." << endl;
 
-    int num = 8;
+    int num = 100;
 
     cout << "Result (With recursion): " << FiboWithRecursion(num) << endl;
     cout << "Result (Without recursion): " << FiboWithoutRecursion(num) << endl;
-
+    cout << "Result (With DP): " << FiboWithDP(num) << endl;
 
     getchar();
     return 0;
