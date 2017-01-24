@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BoostDI", "BoostDI\BoostDI.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Timer", "Timer\Timer.vcxproj", "{A28EFAB0-D392-42E5-BC00-E9B10A945E57}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LinkedList", "LinkedList\LinkedList.vcxproj", "{D87876BB-D514-4703-94B8-BC7417AD519E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -41,6 +43,14 @@ Global
 		{A28EFAB0-D392-42E5-BC00-E9B10A945E57}.Release|x64.Build.0 = Release|x64
 		{A28EFAB0-D392-42E5-BC00-E9B10A945E57}.Release|x86.ActiveCfg = Release|Win32
 		{A28EFAB0-D392-42E5-BC00-E9B10A945E57}.Release|x86.Build.0 = Release|Win32
+		{D87876BB-D514-4703-94B8-BC7417AD519E}.Debug|x64.ActiveCfg = Debug|x64
+		{D87876BB-D514-4703-94B8-BC7417AD519E}.Debug|x64.Build.0 = Debug|x64
+		{D87876BB-D514-4703-94B8-BC7417AD519E}.Debug|x86.ActiveCfg = Debug|Win32
+		{D87876BB-D514-4703-94B8-BC7417AD519E}.Debug|x86.Build.0 = Debug|Win32
+		{D87876BB-D514-4703-94B8-BC7417AD519E}.Release|x64.ActiveCfg = Release|x64
+		{D87876BB-D514-4703-94B8-BC7417AD519E}.Release|x64.Build.0 = Release|x64
+		{D87876BB-D514-4703-94B8-BC7417AD519E}.Release|x86.ActiveCfg = Release|Win32
+		{D87876BB-D514-4703-94B8-BC7417AD519E}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
