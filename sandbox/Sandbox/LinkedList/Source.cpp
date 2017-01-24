@@ -1,6 +1,7 @@
 #include <iostream>
 #include "NodeChains.h"
 #include "LinkedListNode.h"
+#include "LinkedList.h"
 
 void NodeChainsDemo()
 {
@@ -64,6 +65,17 @@ void LinkedListNodeDemoWithDouble()
     LinkedList::PrintList(first);
 }
 
+void LinkedListDemo()
+{
+    auto node =
+        std::make_shared<LinkedList::LinkedList<int>>();
+    node->AddFirst(10);
+    node->AddFirst(20);
+    node->AddFirst(30);
+
+    std::cout << "Count = " << node->GetCount();
+}
+
 int main()
 {
     //NodeChainsDemo();
@@ -72,7 +84,9 @@ int main()
 
     //LinkedListNodeDemoWithInt();
 
-    LinkedListNodeDemoWithDouble();
+    //LinkedListNodeDemoWithDouble();
+
+    LinkedListDemo();
 
     getchar();
     return 0;
