@@ -145,7 +145,6 @@
     <ClCompile Include="LinkedList.cpp" />
     <ClCompile Include="LinkedListNode.cpp" />
     <ClCompile Include="Source.cpp" />
-    <ClCompile Include="TemplateTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LinkedList.h" />
