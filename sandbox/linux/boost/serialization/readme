@@ -1,0 +1,28 @@
+This folder contains a sample code for demonstrating boost serialization library.
+
+Before running the examples, make sure that the Boost library is installed and all 
+necessary libraries are build.
+To make use of Boost/Serialization we need to build a boost.
+
+References:
+
+http://www.boost.org/doc/libs/1_63_0/more/getting_started/unix-variants.html#link-your-program-to-a-boost-library
+
+http://stackoverflow.com/questions/22470265/how-to-install-boost-on-gnu-linux
+
+Quick Steps:
+$ tar --bzip2 -xf /path/to/boost_1_63_0.tar.bz2
+$ cd path/to/boost_1_63_0
+$ ./bootstrap.sh --help
+$ ./bootstrap.sh --prefix=/usr/local/
+$ ./b2 install
+
+Once all libraries are built, run the following command to compile and link:
+$ g++ -I /usr/local/include sample.cpp /usr/local/lib/libboost_serialization.a
+
+This should produce a.out as an executable.
+
+$ ./a.out
+
+It will create a new file named 'arfile' where the serialized data is written.
+
