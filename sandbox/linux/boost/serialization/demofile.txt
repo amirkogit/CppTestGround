@@ -1,0 +1,7 @@
+22 serialization::archive 14 0 0 0 0 6 0 0 0 0 2 3 bob 6 24 4 1 0
+0 0 0 3 0 5 1 0
+1 0 0 0 0 34 135 5.25600014e+01 134 22 7.83000031e+01 11 24th Street 11 10th Avenue 5
+2 35 137 2.34559994e+01 133 35 5.41199989e+01 12 State street 20 Cathedral Vista Lane 6 1 0
+3 35 136 1.54560003e+01 133 32 1.53000002e+01 11 White House 3 bob 9 57 4 0 5 alice 11 2 4 0 3 ted 7 17 4
+4 3 0 6
+5 35 134 4.87890015e+01 133 32 1.62299995e+01 16 Lincoln Memorial 6 3 5 2 3 ted 9 38 4 4 5 alice 11 47 4 4

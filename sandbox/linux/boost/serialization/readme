@@ -18,11 +18,15 @@ $ ./bootstrap.sh --prefix=/usr/local/
 $ ./b2 install
 
 Once all libraries are built, run the following command to compile and link:
+1. sample.cpp - simple example 
 $ g++ -I /usr/local/include sample.cpp /usr/local/lib/libboost_serialization.a
-
 This should produce a.out as an executable.
-
 $ ./a.out
+
+2. boost_tutorial_ex.cpp - example copied from boost tutorial documentation
+$ g++ -I /usr/local/include boost_tutorial_ex.cpp /usr/local/lib/libboost_serialization.a \
+    -o boost_tutorial_ex
+$ ./boost_tutorial_ex
 
 It will create a new file named 'arfile' where the serialized data is written.
 
