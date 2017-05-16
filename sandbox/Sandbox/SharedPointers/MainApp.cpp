@@ -9,9 +9,9 @@ using namespace std;
 
 // lightweight structure holding 3D coordinate values to represent vertex coordinates
 struct Point3D {
-    double x_;
-    double y_;
-    double z_;
+    double x;
+    double y;
+    double z;
 };
 
 typedef vector<Point3D> PointList;
