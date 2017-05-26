@@ -143,11 +143,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="class_templates\TestClassTemplates.cpp" />
+    <ClCompile Include="class_templates\TestClassTemplatesSpecialization.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="TestFunctionTemplates.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="class_templates\ClassTemplates.hpp" />
+    <ClInclude Include="class_templates\ClassTemplatesSpecialization.hpp" />
     <ClInclude Include="class_templates\MyClass.h" />
     <ClInclude Include="FunctionTemplates.hpp" />
     <ClInclude Include="Max.hpp" />

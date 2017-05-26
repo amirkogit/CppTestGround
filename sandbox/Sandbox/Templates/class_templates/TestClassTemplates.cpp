@@ -7,7 +7,7 @@
 
 using namespace std;
 
-int main()
+int mainTestClassTemplates()
 {
     // test with stack of ints
     using IntStack = MyStack<int>;
