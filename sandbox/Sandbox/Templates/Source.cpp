@@ -15,6 +15,7 @@ void Max_Test()
     std::cout << "Max(s1,s2): " << Max(s1, s2) << std::endl;
 }
 
+// rename the function to main() to run this as a main program
 int mainTest()
 {
     Max_Test();

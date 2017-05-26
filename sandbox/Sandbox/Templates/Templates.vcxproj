@@ -148,6 +148,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="class_templates\ClassTemplates.hpp" />
+    <ClInclude Include="class_templates\MyClass.h" />
     <ClInclude Include="FunctionTemplates.hpp" />
     <ClInclude Include="Max.hpp" />
   </ItemGroup>

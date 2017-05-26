@@ -9,7 +9,8 @@ class MyClass {
 
 };
 
-int main()
+// rename the function to main() to run this as a main program
+int mainFunctionTemplates()
 {
     cout << "Calling getmaxForSameType()\n";
     cout << getMaxForSameType(3,6) << endl; // returns 6
