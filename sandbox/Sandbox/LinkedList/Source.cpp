@@ -72,13 +72,13 @@ void linkedListNodeDemoWithDouble()
 
 void linkedListDemo()
 {
-    auto node =
+    auto int_linked_list =
         std::make_shared<LinkedList::LinkedList<int>>();
-    node->addFirst(10);
-    node->addFirst(20);
-    node->addFirst(30);
+    int_linked_list->addFirst(10);
+    int_linked_list->addFirst(20);
+    int_linked_list->addFirst(30);
 
-    std::cout << "Count = " << node->getCount();
+    std::cout << "Count = " << int_linked_list->getCount();
 }
 
 int main()
