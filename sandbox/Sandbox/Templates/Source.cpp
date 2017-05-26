@@ -15,7 +15,7 @@ void Max_Test()
     std::cout << "Max(s1,s2): " << Max(s1, s2) << std::endl;
 }
 
-int main__()
+int mainTest()
 {
     Max_Test();
 

@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <complex>
-#include "FunctionTemplates.h"
+#include "FunctionTemplates.hpp"
 
 using namespace std;
 

@@ -142,11 +142,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="class_templates\TestClassTemplates.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="TestFunctionTemplates.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="FunctionTemplates.h" />
+    <ClInclude Include="class_templates\ClassTemplates.hpp" />
+    <ClInclude Include="FunctionTemplates.hpp" />
     <ClInclude Include="Max.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
