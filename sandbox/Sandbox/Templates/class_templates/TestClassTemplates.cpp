@@ -7,6 +7,7 @@
 
 using namespace std;
 
+// rename to main() to run this as a main program
 int mainTestClassTemplates()
 {
     // test with stack of ints
