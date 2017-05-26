@@ -8,31 +8,32 @@ class Node
 {
 public:
     explicit Node(int value)
-        : _value(value) {}
+        : m_value(value) {}
     ~Node() {}
 
-    int GetValue() { return _value; }
+    int GetValue() { return m_value; }
 
-    std::shared_ptr<Node> GetNext()
+    std::shared_ptr<Node> getNext()
     {
-        return _next;
+        return m_next;
     }
 
-    void SetNext(std::shared_ptr<Node>& next)
+    void setNext(std::shared_ptr<Node>& next)
     {
-        _next = next;
+        m_next = next;
     }
 
 private:
-    int _value;
-    std::shared_ptr<Node> _next;
+    int m_value;
+    std::shared_ptr<Node> m_next;
 };
 
-void PrintNodeChains(std::shared_ptr<Node>& node)
+void printNodeChains(std::shared_ptr<Node>& node)
 {
-    while (node != nullptr) {
-        std::cout << node->GetValue() << std::endl;
-        node = node->GetNext();
+    auto temp = node; 
+    while (temp != nullptr) {
+        std::cout << temp->GetValue() << std::endl;
+        temp = temp->getNext();
     }
 }
 } // end of namespace

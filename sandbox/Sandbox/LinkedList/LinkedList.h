@@ -9,47 +9,47 @@ class LinkedList
 {
 public:
     LinkedList()
-        : _count(0) {}
+        : m_count(0) {}
 
     ~LinkedList() {}
 
-    void AddFirst(T value);
+    void addFirst(T value);
 
-    int GetCount() { return _count;}
-
-private:
-    void AddFirst(std::shared_ptr<LinkedListNode<T>>& node);
+    int getCount() { return m_count;}
 
 private:
-    std::shared_ptr<LinkedListNode<T>> _head;
-    std::shared_ptr<LinkedListNode<T>> _tail;
-    int _count;
+    void addFirst(std::shared_ptr<LinkedListNode<T>>& node);
+
+private:
+    std::shared_ptr<LinkedListNode<T>> m_head;
+    std::shared_ptr<LinkedListNode<T>> m_tail;
+    int m_count;
 };
 
 template<typename T, 
          template<typename> typename LinkedListNode = LinkedListNode>
-void LinkedList<T, LinkedListNode>::AddFirst(T value)
+void LinkedList<T, LinkedListNode>::addFirst(T value)
 {
     auto new_node = std::make_shared<LinkedListNode<T>>(value);
-    AddFirst(new_node);
+    addFirst(new_node);
 }
 
 template<typename T,
     template<typename> typename LinkedListNode = LinkedListNode>
-void LinkedList<T, LinkedListNode>::AddFirst(std::shared_ptr<LinkedListNode<T>>& node)
+void LinkedList<T, LinkedListNode>::addFirst(std::shared_ptr<LinkedListNode<T>>& node)
 {
-    std::shared_ptr<LinkedListNode<T>> temp = _head;
+    std::shared_ptr<LinkedListNode<T>> temp = m_head;
     
     // point head to the new node
-    _head = node;
+    m_head = node;
     
     // insert rest of the list behind the head
-    _head->SetNext(temp);
+    m_head->setNext(temp);
     
-    _count++;
+    m_count++;
     
-    if (_count == 1) {
-        _tail = _head;
+    if (m_count == 1) {
+        m_tail = m_head;
     }
 }
 

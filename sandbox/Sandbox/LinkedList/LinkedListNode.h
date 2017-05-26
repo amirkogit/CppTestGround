@@ -9,45 +9,36 @@ template <typename T>
 class LinkedListNode {
 public:
     explicit LinkedListNode(T value)
-    : _value(value){
+    : m_value(value){
 
     }
 
     LinkedListNode() {}
 
-    T GetValue() { return _value;}
+    T getValue() { return m_value;}
 
-    std::shared_ptr<LinkedListNode<T>> GetNext()
+    std::shared_ptr<LinkedListNode<T>> getNext()
     {
-        return _next;
+        return m_next;
     }
 
-    void SetNext(std::shared_ptr<LinkedListNode<T>>& next)
+    void setNext(std::shared_ptr<LinkedListNode<T>>& next)
     {
-        _next = next;
+        m_next = next;
     }
 
 private:
-    T _value;
-    std::shared_ptr<LinkedListNode<T>> _next;
+    T m_value;
+    std::shared_ptr<LinkedListNode<T>> m_next;
 };
 
 template<typename T>
-void PrintList(std::shared_ptr<LinkedListNode<T>>& node)
+void printList(std::shared_ptr<LinkedListNode<T>>& node)
 {
-    while (node != nullptr) {
-        std::cout << node->GetValue() << std::endl;
-        node = node->GetNext();
+    auto temp = node;
+    while (temp != nullptr) {
+        std::cout << temp->getValue() << std::endl;
+        temp = temp->getNext();
     }
 }
-
-// TODO: do template specialization for std::string
-//template<>
-//void PrintList<std::string>(std::shared_ptr<LinkedListNode<std::string>>& node)
-//{
-//    while (node != nullptr) {
-//        std::cout << node->GetValue().c_str() << std::endl;
-//        node = node->GetNext();
-//    }
-//}
 } // end of namespace

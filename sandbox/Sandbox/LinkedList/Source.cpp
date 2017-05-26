@@ -3,19 +3,19 @@
 #include "LinkedListNode.h"
 #include "LinkedList.h"
 
-void NodeChainsDemo()
+void nodeChainsDemo()
 {
     auto first = std::make_shared<NodeChains::Node>(10);
     auto middle = std::make_shared<NodeChains::Node>(20);
     auto last = std::make_shared<NodeChains::Node>(30);
 
-    first->SetNext(middle);
-    middle->SetNext(last);
+    first->setNext(middle);
+    middle->setNext(last);
 
-    NodeChains::PrintNodeChains(first);
+    NodeChains::printNodeChains(first);
 }
 
-void LinkedListNodeDemoWithString()
+void linkedListNodeDemoWithString()
 {
     auto first = 
         std::make_shared<LinkedList::LinkedListNode<std::string>>("Node1");
@@ -26,16 +26,21 @@ void LinkedListNodeDemoWithString()
     auto last =
         std::make_shared<LinkedList::LinkedListNode<std::string>>("Node3");
 
-    first->SetNext(middle);
-    middle->SetNext(last);
+    first->setNext(middle);
+    middle->setNext(last);
 
+   
+    std::cout << "using printList()\n";
+    LinkedList::printList(first);
+   
+    std::cout << "Printing with usual method\n";
     while (first != nullptr) {
-        std::cout << first->GetValue().c_str() << std::endl;
-        first = first->GetNext();
+        std::cout << first->getValue().c_str() << std::endl;
+        first = first->getNext();
     }
 }
 
-void LinkedListNodeDemoWithInt()
+void linkedListNodeDemoWithInt()
 {
     auto first =
         std::make_shared<LinkedList::LinkedListNode<int>>(110);
@@ -44,13 +49,13 @@ void LinkedListNodeDemoWithInt()
     auto last =
         std::make_shared<LinkedList::LinkedListNode<int>>(330);
     
-    first->SetNext(middle);
-    middle->SetNext(last);
+    first->setNext(middle);
+    middle->setNext(last);
 
-    LinkedList::PrintList(first);
+    LinkedList::printList(first);
 }
 
-void LinkedListNodeDemoWithDouble()
+void linkedListNodeDemoWithDouble()
 {
     auto first =
         std::make_shared<LinkedList::LinkedListNode<double>>(110.256);
@@ -59,34 +64,34 @@ void LinkedListNodeDemoWithDouble()
     auto last =
         std::make_shared<LinkedList::LinkedListNode<double>>(330.778);
 
-    first->SetNext(middle);
-    middle->SetNext(last);
+    first->setNext(middle);
+    middle->setNext(last);
 
-    LinkedList::PrintList(first);
+    LinkedList::printList(first);
 }
 
-void LinkedListDemo()
+void linkedListDemo()
 {
     auto node =
         std::make_shared<LinkedList::LinkedList<int>>();
-    node->AddFirst(10);
-    node->AddFirst(20);
-    node->AddFirst(30);
+    node->addFirst(10);
+    node->addFirst(20);
+    node->addFirst(30);
 
-    std::cout << "Count = " << node->GetCount();
+    std::cout << "Count = " << node->getCount();
 }
 
 int main()
 {
-    //NodeChainsDemo();
+    nodeChainsDemo();
 
-    //LinkedListNodeDemoWithString();
+    linkedListNodeDemoWithString();
 
-    //LinkedListNodeDemoWithInt();
+    linkedListNodeDemoWithInt();
 
-    //LinkedListNodeDemoWithDouble();
+    linkedListNodeDemoWithDouble();
 
-    LinkedListDemo();
+    linkedListDemo();
 
     getchar();
     return 0;
