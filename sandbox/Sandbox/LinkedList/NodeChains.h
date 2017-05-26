@@ -11,7 +11,7 @@ public:
         : m_value(value) {}
     ~Node() {}
 
-    int GetValue() { return m_value; }
+    int getValue() { return m_value; }
 
     std::shared_ptr<Node> getNext()
     {
@@ -32,7 +32,7 @@ void printNodeChains(std::shared_ptr<Node>& node)
 {
     auto temp = node; 
     while (temp != nullptr) {
-        std::cout << temp->GetValue() << std::endl;
+        std::cout << temp->getValue() << std::endl;
         temp = temp->getNext();
     }
 }
