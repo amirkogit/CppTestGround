@@ -1,9 +1,16 @@
+//-----------------------------------------------------------------------------------------
+// Demonstrates the erase remove idiom on std::vector
+//
+// Amir Shrestha [amirkomail@gmail.com, https://amirkoblog.wordpress.com/, @amirkotweet]
+//-----------------------------------------------------------------------------------------
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
 using namespace std;
 
+#if 0
 void display_vector(const vector<int> v)
 {
     cout << "Content: ";
@@ -40,3 +47,6 @@ int main()
 
     return 0;
 }
+#endif
+
+
