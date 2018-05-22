@@ -1,5 +1,6 @@
 //-----------------------------------------------------------------------------------------
 // Demonstrates how to remove items from unsorted std::vector in O(1) time
+// Reference: C++17 STL Cookbook
 //
 // Amir Shrestha [amirkomail@gmail.com, https://amirkoblog.wordpress.com/, @amirkotweet]
 //-----------------------------------------------------------------------------------------
@@ -10,7 +11,7 @@
 
 using namespace std;
 
-#if 1
+#if 0
 void display_vector(const vector<int> v)
 {
     cout << "Content: ";
