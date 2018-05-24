@@ -10,7 +10,7 @@
 
 using namespace std;
 
-#if 1
+#if 0
 int main()
 {
     const size_t vec_size {2000};
