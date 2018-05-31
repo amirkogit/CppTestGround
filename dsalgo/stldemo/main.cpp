@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------------------
 // Empty stub with main function for quick testing
 //
-// Amir Shrestha [amirkomail@gmail.com, https://amirkoblog.wordpress.com/, @amirkotweet]
+// Amir Shrestha [https://amirkoblog.wordpress.com/, @amirkotweet]
 //-----------------------------------------------------------------------------------------
 
 #include <iostream>

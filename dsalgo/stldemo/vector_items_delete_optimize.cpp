@@ -2,7 +2,7 @@
 // Demonstrates how to remove items from unsorted std::vector in O(1) time
 // Reference: C++17 STL Cookbook
 //
-// Amir Shrestha [amirkomail@gmail.com, https://amirkoblog.wordpress.com/, @amirkotweet]
+// Amir Shrestha [https://amirkoblog.wordpress.com/, @amirkotweet]
 //-----------------------------------------------------------------------------------------
 
 #include <iostream>
