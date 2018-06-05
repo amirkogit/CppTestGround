@@ -45,3 +45,5 @@ Temporary Items
 build/
 dsalgo/build*
 dsalgo/stldemo/*.user
+dsalgo/target*
+dsalgo/stldemo/*.pro.user*

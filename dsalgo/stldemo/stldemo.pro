@@ -9,4 +9,8 @@ SOURCES += \
     vector_items_delete_optimize.cpp \
     vector_element_access.cpp \
     sorted_vector.cpp \
-    conditional_map_insert.cpp
+    conditional_map_insert.cpp \
+    custom_iterable_range.cpp \
+    compatible_custom_iterators.cpp \
+    iterator_adapters.cpp \
+    algo_in_terms_of_iterators.cpp
