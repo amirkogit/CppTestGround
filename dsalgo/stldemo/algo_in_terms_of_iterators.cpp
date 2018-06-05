@@ -7,7 +7,7 @@
 
 using namespace std;
 
-#if 1
+#if 0
 
 // fibonacci iterator class
 class fibo_iter

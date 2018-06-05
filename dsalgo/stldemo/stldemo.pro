@@ -13,4 +13,5 @@ SOURCES += \
     custom_iterable_range.cpp \
     compatible_custom_iterators.cpp \
     iterator_adapters.cpp \
-    algo_in_terms_of_iterators.cpp
+    algo_in_terms_of_iterators.cpp \
+    reverse_iterator_adapters.cpp
