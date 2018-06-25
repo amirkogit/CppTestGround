@@ -42,11 +42,7 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-build/
-dsalgo/build*
-dsalgo/stldemo/*.user
-dsalgo/target*
+Debug/
+Release/
+*.user
 .vs
-dsalgo/*.pro.user*
-dsalgo/StlPractice/Debug*
-dsalgo/StlPractice/Release*
