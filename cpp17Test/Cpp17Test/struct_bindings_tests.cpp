@@ -1,5 +1,7 @@
 #include "catch.hpp"
 #include <iostream>
+#include <set>
+#include <iomanip>
 
 namespace StructuredBindings {
 int run()
