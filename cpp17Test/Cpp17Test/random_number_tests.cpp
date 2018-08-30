@@ -32,7 +32,7 @@ int run()
 } // end namespace
 
 
-TEST_CASE("Random Number Generation Test", "[random_test]") {
+TEST_CASE("Random Number Generation Test", "[random_test][!hide]") {
 
     const int TRIALS = 10;
 
