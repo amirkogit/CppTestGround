@@ -25,4 +25,6 @@ SOURCES += catch.hpp \
     variant_tests.cpp \
     monostate.cpp \
     filesystem_tests.cpp \
-    stringview_tests.cpp
+    stringview_tests.cpp \
+    random_number_tests.cpp \
+    vector_tests.cpp
