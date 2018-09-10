@@ -27,4 +27,9 @@ SOURCES += catch.hpp \
     filesystem_tests.cpp \
     stringview_tests.cpp \
     random_number_tests.cpp \
-    vector_tests.cpp
+    vector_tests.cpp \
+    ds/list.cpp \
+    list_tests.cpp
+
+HEADERS += \
+    ds/list.h
