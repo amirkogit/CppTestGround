@@ -29,7 +29,11 @@ SOURCES += catch.hpp \
     random_number_tests.cpp \
     vector_tests.cpp \
     ds/list.cpp \
-    list_tests.cpp
+    list_tests.cpp \
+    ds/node.cpp \
+    node_tests.cpp
 
 HEADERS += \
-    ds/list.h
+    ds/list.h \
+    ds/node.h \
+    ds/node.h
