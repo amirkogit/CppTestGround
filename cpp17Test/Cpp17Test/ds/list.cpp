@@ -12,7 +12,7 @@ SimpleList::~SimpleList()
 }
 
 // get the item for the given index
-int SimpleList::get(int index)
+int SimpleList::get(int index) const
 {
     if(index < 0 || index > m_count) {
         return -1;
@@ -49,7 +49,7 @@ void SimpleList::insert(int index, int val)
 }
 
 // Iterates each items in the list and returns the index for the matched value
-int SimpleList::search(int val)
+int SimpleList::search(int val) const
 {
     for(int i = 0; i < m_count; ++i) {
         if(m_data[i] == val) {
@@ -86,7 +86,7 @@ void SimpleList::remove(int index)
 }
 
 // Returns the count of elements in the list
-int SimpleList::getCount()
+int SimpleList::getCount() const
 {
     return m_count;
 }
@@ -101,7 +101,7 @@ void SimpleList::empty()
 }
 
 // Prints each items present in the list
-void SimpleList::print()
+void SimpleList::print() const
 {
     using namespace std;
     for(int i = 0; i < m_count; ++i) {

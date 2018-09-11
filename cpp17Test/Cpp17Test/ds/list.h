@@ -3,19 +3,19 @@
 #include <iostream>
 
 namespace CoreDS {
-class SimpleList
+class SimpleList final
 {
 public:
     SimpleList();
     ~SimpleList();
 
-    int get(int index);
+    int get(int index) const;
     void insert(int index, int val);
-    int search(int val);
+    int search(int val) const;
     void remove(int index);
-    int getCount();
+    int getCount() const;
     void empty();
-    void print();
+    void print() const;
 
 private:
     int* m_data = nullptr;
