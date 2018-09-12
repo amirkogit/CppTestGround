@@ -31,9 +31,12 @@ SOURCES += catch.hpp \
     ds/list.cpp \
     list_tests.cpp \
     ds/node.cpp \
-    node_tests.cpp
+    node_tests.cpp \
+    ds/singlylinkedlist.cpp \
+    singly_linkedlist_tests.cpp
 
 HEADERS += \
     ds/list.h \
     ds/node.h \
-    ds/node.h
+    ds/node.h \
+    ds/singlylinkedlist.h
