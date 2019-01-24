@@ -41,4 +41,5 @@ HEADERS += \
     ds/node.h \
     ds/node.h \
     ds/singlylinkedlist.h \
-    ds/singlylinkedlistsmart.h
+    ds/singlylinkedlistsmart.h \
+    ..\README.md
