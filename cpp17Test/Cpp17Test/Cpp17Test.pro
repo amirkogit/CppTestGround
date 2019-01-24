@@ -33,10 +33,12 @@ SOURCES += catch.hpp \
     ds/node.cpp \
     node_tests.cpp \
     ds/singlylinkedlist.cpp \
-    singly_linkedlist_tests.cpp
+    singly_linkedlist_tests.cpp \
+    ds/singlylinkedlistsmart.cpp
 
 HEADERS += \
     ds/list.h \
     ds/node.h \
     ds/node.h \
-    ds/singlylinkedlist.h
+    ds/singlylinkedlist.h \
+    ds/singlylinkedlistsmart.h
