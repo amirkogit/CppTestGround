@@ -18,8 +18,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 #SOURCES += main.cpp
 #SOURCES += main_template.cpp
-SOURCES += main_simple_vector.cpp
+#SOURCES += main_simple_vector.cpp
+#SOURCES  += main_monomorphic_functions.cpp
+SOURCES  += main_generic_func_intro.cpp
 #SOURCES += main_counting_elements_in_two_arrays.cpp
 #SOURCES += main_four_elements_sum.cpp
 #SOURCES += main_identical_trees.cpp
 #SOURCES += main_pair_with_max_product.cpp
+
+HEADERS += \
+    utils.h
