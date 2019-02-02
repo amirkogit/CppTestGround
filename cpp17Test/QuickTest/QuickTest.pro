@@ -21,11 +21,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #SOURCES += main_simple_vector.cpp
 #SOURCES += main_monomorphic_functions.cpp
 #SOURCES  += main_generic_func_intro.cpp
-SOURCES  += main_iterator_ranges_basics.cpp
+#SOURCES  += main_iterator_ranges_basics.cpp
 #SOURCES += main_counting_elements_in_two_arrays.cpp
 #SOURCES += main_four_elements_sum.cpp
 #SOURCES += main_identical_trees.cpp
 #SOURCES += main_pair_with_max_product.cpp
+SOURCES  += main_samples.cpp
 
 HEADERS += \
     utils.h
