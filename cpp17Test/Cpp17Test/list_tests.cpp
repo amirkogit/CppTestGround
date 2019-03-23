@@ -1,5 +1,6 @@
 #include "catch.hpp"
-#include "../ds/list.h"
+#include "./ds/list.h"
+//#include "../ds/list.h"
 #include <iostream>
 
 TEST_CASE("SimpleList Tests", "[test1]")

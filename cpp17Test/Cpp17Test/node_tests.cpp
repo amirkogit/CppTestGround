@@ -1,5 +1,5 @@
 #include "catch.hpp"
-#include "../ds/node.h"
+#include "./ds/node.h"
 #include <iostream>
 #include <memory>
 

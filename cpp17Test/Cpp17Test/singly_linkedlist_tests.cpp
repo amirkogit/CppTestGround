@@ -1,5 +1,5 @@
 #include "catch.hpp"
-#include "../ds/singlylinkedlist.h"
+#include "./ds/singlylinkedlist.h"
 #include <iostream>
 #include <memory>
 
