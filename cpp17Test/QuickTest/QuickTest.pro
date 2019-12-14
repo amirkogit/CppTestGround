@@ -26,7 +26,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #SOURCES += main_four_elements_sum.cpp
 #SOURCES += main_identical_trees.cpp
 #SOURCES += main_pair_with_max_product.cpp
-SOURCES  += main_samples.cpp
+#SOURCES  += main_samples.cpp
+SOURCES += main_cxx17cg.cpp
 
 HEADERS += \
     utils.h
